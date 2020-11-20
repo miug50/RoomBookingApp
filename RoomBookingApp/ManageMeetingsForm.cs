@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RoomBookingApp
 {
-    public partial class Form1 : Form
+    public partial class ManageMeetingsForm : Form
     {
-        public Form1()
+        public ManageMeetingsForm()
         {
             InitializeComponent();
         }
