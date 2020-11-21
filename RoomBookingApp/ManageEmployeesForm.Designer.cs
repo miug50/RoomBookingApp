@@ -81,7 +81,7 @@
             this.buttonClearEmp.TabIndex = 13;
             this.buttonClearEmp.Text = "Clear Fields";
             this.buttonClearEmp.UseVisualStyleBackColor = true;
-            this.buttonClearEmp.Click += new System.EventHandler(this.buttonClearEmp_Click);
+            this.buttonClearEmp.Click += new System.EventHandler(this.ButtonClearEmp_Click);
             // 
             // buttonRemoveEmp
             // 
@@ -92,7 +92,7 @@
             this.buttonRemoveEmp.TabIndex = 12;
             this.buttonRemoveEmp.Text = "Remove";
             this.buttonRemoveEmp.UseVisualStyleBackColor = true;
-            this.buttonRemoveEmp.Click += new System.EventHandler(this.buttonRemoveEmp_Click);
+            this.buttonRemoveEmp.Click += new System.EventHandler(this.ButtonRemoveEmp_Click);
             // 
             // buttonEditEmp
             // 
@@ -103,7 +103,7 @@
             this.buttonEditEmp.TabIndex = 11;
             this.buttonEditEmp.Text = "Edit";
             this.buttonEditEmp.UseVisualStyleBackColor = true;
-            this.buttonEditEmp.Click += new System.EventHandler(this.buttonEditEmp_Click);
+            this.buttonEditEmp.Click += new System.EventHandler(this.ButtonEditEmp_Click);
             // 
             // buttonNewEmployee
             // 
@@ -114,7 +114,7 @@
             this.buttonNewEmployee.TabIndex = 10;
             this.buttonNewEmployee.Text = "Add New Employee";
             this.buttonNewEmployee.UseVisualStyleBackColor = true;
-            this.buttonNewEmployee.Click += new System.EventHandler(this.buttonNewEmployee_Click);
+            this.buttonNewEmployee.Click += new System.EventHandler(this.ButtonNewEmployee_Click);
             // 
             // dataGridView1
             // 
@@ -128,8 +128,8 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(850, 500);
             this.dataGridView1.TabIndex = 9;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // textBoxEmailEmp
             // 
@@ -138,7 +138,7 @@
             this.textBoxEmailEmp.Name = "textBoxEmailEmp";
             this.textBoxEmailEmp.Size = new System.Drawing.Size(213, 26);
             this.textBoxEmailEmp.TabIndex = 8;
-            this.textBoxEmailEmp.TextChanged += new System.EventHandler(this.textBoxEmailEmp_TextChanged);
+            this.textBoxEmailEmp.TextChanged += new System.EventHandler(this.TextBoxEmailEmp_TextChanged);
             // 
             // textBoxLnameEmp
             // 
@@ -147,7 +147,7 @@
             this.textBoxLnameEmp.Name = "textBoxLnameEmp";
             this.textBoxLnameEmp.Size = new System.Drawing.Size(213, 26);
             this.textBoxLnameEmp.TabIndex = 7;
-            this.textBoxLnameEmp.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textBoxLnameEmp.TextChanged += new System.EventHandler(this.TextBox3_TextChanged);
             // 
             // textBoxFnameEmp
             // 
@@ -187,7 +187,7 @@
             this.label4.Size = new System.Drawing.Size(134, 29);
             this.label4.TabIndex = 3;
             this.label4.Text = "Last Name:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // label3
             // 

@@ -22,19 +22,19 @@ namespace RoomBookingApp
             Application.Exit();
         }
 
-        private void manageMeetingsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ManageMeetingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageMeetingsForm ManageMF = new ManageMeetingsForm();
             ManageMF.Show();
         }
 
-        private void manageEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ManageEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageEmployeesForm ManageEF = new ManageEmployeesForm();
             ManageEF.Show();
         }
 
-        private void manageRoomsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ManageRoomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageRoomsForm ManageRF = new ManageRoomsForm();
             ManageRF.Show();

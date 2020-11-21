@@ -77,7 +77,7 @@
             this.buttonClearRoom.TabIndex = 17;
             this.buttonClearRoom.Text = "Clear Fields";
             this.buttonClearRoom.UseVisualStyleBackColor = true;
-            this.buttonClearRoom.Click += new System.EventHandler(this.buttonClearRoom_Click);
+            this.buttonClearRoom.Click += new System.EventHandler(this.ButtonClearRoom_Click);
             // 
             // buttonRemoveRoom
             // 
@@ -88,7 +88,7 @@
             this.buttonRemoveRoom.TabIndex = 16;
             this.buttonRemoveRoom.Text = "Remove";
             this.buttonRemoveRoom.UseVisualStyleBackColor = true;
-            this.buttonRemoveRoom.Click += new System.EventHandler(this.buttonRemoveRoom_Click);
+            this.buttonRemoveRoom.Click += new System.EventHandler(this.ButtonRemoveRoom_Click);
             // 
             // buttonEditRoom
             // 
@@ -99,7 +99,7 @@
             this.buttonEditRoom.TabIndex = 15;
             this.buttonEditRoom.Text = "Edit";
             this.buttonEditRoom.UseVisualStyleBackColor = true;
-            this.buttonEditRoom.Click += new System.EventHandler(this.buttonEditRoom_Click);
+            this.buttonEditRoom.Click += new System.EventHandler(this.ButtonEditRoom_Click);
             // 
             // buttonNewRoom
             // 
@@ -110,7 +110,7 @@
             this.buttonNewRoom.TabIndex = 14;
             this.buttonNewRoom.Text = "Add New Room";
             this.buttonNewRoom.UseVisualStyleBackColor = true;
-            this.buttonNewRoom.Click += new System.EventHandler(this.buttonNewRoom_Click);
+            this.buttonNewRoom.Click += new System.EventHandler(this.ButtonNewRoom_Click);
             // 
             // TextBoxCapacityRoom
             // 
@@ -178,7 +178,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(850, 500);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // panel2
             // 

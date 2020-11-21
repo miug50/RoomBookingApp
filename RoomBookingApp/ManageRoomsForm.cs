@@ -12,21 +12,21 @@ namespace RoomBookingApp
 {
     public partial class ManageRoomsForm : Form
     {
-        ROOM room = new ROOM();
+        readonly ROOM room = new ROOM();
         public ManageRoomsForm()
         {
             InitializeComponent();
         }
 
 
-        private void buttonNewRoom_Click(object sender, EventArgs e)
+        private void ButtonNewRoom_Click(object sender, EventArgs e)
         {
             try
             {
                 String name = TextBoxNameRoom.Text;
                 int number = Convert.ToInt32(TextBoxCapacityRoom.Text);
 
-                if (room.insertRoom(name, number))
+                if (room.InsertRoom(name, number))
                 {
                     dataGridView1.DataSource = room.GetRooms();
                     MessageBox.Show("Room inserted successfuly", "Room inserted", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -42,7 +42,7 @@ namespace RoomBookingApp
             }
         }
 
-        private void buttonClearRoom_Click(object sender, EventArgs e)
+        private void ButtonClearRoom_Click(object sender, EventArgs e)
         {
             TextBoxIDRoom.Text = "";
             TextBoxNameRoom.Text = "";
@@ -55,14 +55,14 @@ namespace RoomBookingApp
         }
 
         //loads the selected cell values in to the text boxes
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             TextBoxIDRoom.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             TextBoxNameRoom.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             TextBoxCapacityRoom.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
         }
 
-        private void buttonEditRoom_Click(object sender, EventArgs e)
+        private void ButtonEditRoom_Click(object sender, EventArgs e)
         {
             try { 
                 int id = Convert.ToInt32(TextBoxIDRoom.Text);
@@ -85,7 +85,7 @@ namespace RoomBookingApp
             }
         }
 
-        private void buttonRemoveRoom_Click(object sender, EventArgs e)
+        private void ButtonRemoveRoom_Click(object sender, EventArgs e)
         {
             try { 
                 int id = Convert.ToInt32(TextBoxIDRoom.Text);

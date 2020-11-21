@@ -10,9 +10,9 @@ namespace RoomBookingApp
 {
     class ROOM
     {
-        CONNECT conn = new CONNECT();
+        readonly CONNECT conn = new CONNECT();
 
-        public bool insertRoom(String RoomName, int RoomCapacity)
+        public bool InsertRoom(String RoomName, int RoomCapacity)
         {
             MySqlCommand command = new MySqlCommand();
             string insertQuery = "INSERT INTO `rooms`(`RoomName`, `RoomCapacity`) VALUES (@rrn,@rrc)";

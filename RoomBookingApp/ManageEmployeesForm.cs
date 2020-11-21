@@ -12,24 +12,24 @@ namespace RoomBookingApp
 {
     public partial class ManageEmployeesForm : Form
     {
-        EMPLOYEE Employee = new EMPLOYEE();
+        readonly EMPLOYEE Employee = new EMPLOYEE();
 
         public ManageEmployeesForm()
         {
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Label4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void TextBox3_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void buttonClearEmp_Click(object sender, EventArgs e)
+        private void ButtonClearEmp_Click(object sender, EventArgs e)
         {
             textBoxIDEmp.Text = "";
             textBoxFnameEmp.Text = "";
@@ -37,7 +37,7 @@ namespace RoomBookingApp
             textBoxEmailEmp.Text = "";
         }
 
-        private void buttonNewEmployee_Click(object sender, EventArgs e)
+        private void ButtonNewEmployee_Click(object sender, EventArgs e)
         {
 
             String Fname = textBoxFnameEmp.Text;
@@ -50,7 +50,7 @@ namespace RoomBookingApp
             }
             else
             {
-                Boolean insertClient = Employee.insertEmployee(Fname, Lname, Email);
+                Boolean insertClient = Employee.InsertEmployee(Fname, Lname, Email);
 
                 if (insertClient)
                 {
@@ -73,7 +73,7 @@ namespace RoomBookingApp
         }
 
 
-        private void buttonEditEmp_Click(object sender, EventArgs e)
+        private void ButtonEditEmp_Click(object sender, EventArgs e)
         {
             int id;
             String Fname = textBoxFnameEmp.Text;
@@ -114,7 +114,7 @@ namespace RoomBookingApp
         }
 
         //display the selected Employee data from the datagridview to the textboxes. 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             textBoxIDEmp.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             textBoxFnameEmp.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
@@ -122,7 +122,7 @@ namespace RoomBookingApp
             textBoxEmailEmp.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
         }
 
-        private void buttonRemoveEmp_Click(object sender, EventArgs e)
+        private void ButtonRemoveEmp_Click(object sender, EventArgs e)
         {
             try
             {
@@ -148,12 +148,12 @@ namespace RoomBookingApp
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void textBoxEmailEmp_TextChanged(object sender, EventArgs e)
+        private void TextBoxEmailEmp_TextChanged(object sender, EventArgs e)
         {
 
         }

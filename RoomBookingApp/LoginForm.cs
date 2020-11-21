@@ -18,7 +18,7 @@ namespace RoomBookingApp
             InitializeComponent();
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        private void ButtonLogin_Click(object sender, EventArgs e)
         {
             CONNECT conn = new CONNECT();
             DataTable table = new DataTable();
