@@ -33,31 +33,43 @@ namespace RoomBookingApp
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = TextBoxPassword.Text;
 
             adapter.SelectCommand = command;
-            adapter.Fill(table);
 
-            //if the user and the password exists 
-            if (table.Rows.Count > 0)
-            {
-                // show the main from
-                this.Hide();
-                Main_Form mForm = new Main_Form();
-                mForm.Show();
-            }
-            else
-            {
-                if (TextBoxUsername.Text.Trim().Equals(""))
+            //trys to conect to the database. if the database is not active. Catch and display error message. 
+            try { 
+                adapter.Fill(table);
+
+                if (table.Rows.Count > 0)
                 {
-                    MessageBox.Show("Enter Your Username To Login", "Empty Username", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (TextBoxPassword.Text.Trim().Equals(""))
-                {
-                    MessageBox.Show("Enter Your Password To Login", "Empty Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // show the main from
+                    this.Hide();
+                    Main_Form mForm = new Main_Form();
+                    mForm.Show();
                 }
                 else
                 {
-                    MessageBox.Show("this username or password Dosen't Exisit", "wrong data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //if the user and the password exists 
+                    if (TextBoxUsername.Text.Trim().Equals(""))
+                    {
+                        MessageBox.Show("Enter Your Username To Login", "Empty Username", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (TextBoxPassword.Text.Trim().Equals(""))
+                    {
+                        MessageBox.Show("Enter Your Password To Login", "Empty Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("this username or password Dosen't Exisit", "wrong data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "DATABASE ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TextBoxUsername.Text = "";
+                TextBoxPassword.Text = "";
+            }
+            
+            
 
 
 

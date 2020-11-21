@@ -53,6 +53,7 @@ namespace RoomBookingApp
             return table;
         }
 
+        //function to Edit Employees
         public bool EditEmployee(int id, String Fname, String Lname, String Email)
         {
             MySqlCommand command = new MySqlCommand();
