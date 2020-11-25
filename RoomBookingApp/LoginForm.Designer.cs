@@ -115,13 +115,15 @@
             // 
             this.checkBoxLoginForm.AutoCheck = false;
             this.checkBoxLoginForm.AutoSize = true;
+            this.checkBoxLoginForm.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxLoginForm.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBoxLoginForm.Location = new System.Drawing.Point(12, 12);
             this.checkBoxLoginForm.Name = "checkBoxLoginForm";
-            this.checkBoxLoginForm.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxLoginForm.Size = new System.Drawing.Size(106, 17);
             this.checkBoxLoginForm.TabIndex = 5;
             this.checkBoxLoginForm.Text = "SQL connection?";
-            this.checkBoxLoginForm.UseVisualStyleBackColor = true;
-            this.checkBoxLoginForm.CheckedChanged += new System.EventHandler(this.CheckBoxLoginForm_CheckedChanged);
+            this.checkBoxLoginForm.UseVisualStyleBackColor = false;
             // 
             // LoginForm
             // 
@@ -132,8 +134,10 @@
             this.Controls.Add(this.checkBoxLoginForm);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

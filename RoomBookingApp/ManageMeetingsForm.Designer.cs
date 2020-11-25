@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageMeetingsForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateTimePickerMeetingEnd = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerMeetingStart = new System.Windows.Forms.DateTimePicker();
@@ -90,7 +91,6 @@
             this.dateTimePickerMeetingStart.CustomFormat = "yyyy-mm-dd hh:mm:ss";
             this.dateTimePickerMeetingStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerMeetingStart.Location = new System.Drawing.Point(229, 323);
-            this.dateTimePickerMeetingStart.MinDate = new System.DateTime(2020, 11, 21, 0, 0, 0, 0);
             this.dateTimePickerMeetingStart.Name = "dateTimePickerMeetingStart";
             this.dateTimePickerMeetingStart.Size = new System.Drawing.Size(213, 20);
             this.dateTimePickerMeetingStart.TabIndex = 29;
@@ -145,6 +145,7 @@
             this.buttonRemoveMeeting.TabIndex = 24;
             this.buttonRemoveMeeting.Text = "Remove";
             this.buttonRemoveMeeting.UseVisualStyleBackColor = true;
+            this.buttonRemoveMeeting.Click += new System.EventHandler(this.ButtonRemoveMeeting_Click);
             // 
             // buttonEditMeeting
             // 
@@ -155,6 +156,7 @@
             this.buttonEditMeeting.TabIndex = 23;
             this.buttonEditMeeting.Text = "Edit";
             this.buttonEditMeeting.UseVisualStyleBackColor = true;
+            this.buttonEditMeeting.Click += new System.EventHandler(this.ButtonEditMeeting_Click);
             // 
             // buttonNewMeeting
             // 
@@ -224,7 +226,9 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(570, 163);
@@ -232,6 +236,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(850, 500);
             this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // panel2
@@ -264,6 +269,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 716);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1500, 755);
             this.Name = "ManageMeetingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageMeetingsForm";

@@ -22,16 +22,30 @@ namespace RoomBookingApp
             if (IsServerConnected() == true)
             {
                 checkBoxLoginForm.CheckState = CheckState.Checked;
+                checkBoxLoginForm.ForeColor = Color.FromArgb(0, 128, 0);
             }
             else
             {
                 checkBoxLoginForm.CheckState = CheckState.Unchecked;
+                checkBoxLoginForm.ForeColor = Color.FromArgb(255, 0, 0);
             }
             
         }
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
+
+
+            if (IsServerConnected() == true)
+            {
+                checkBoxLoginForm.CheckState = CheckState.Checked;
+                checkBoxLoginForm.ForeColor = Color.FromArgb(0, 128, 0);
+            }
+            else
+            {
+                checkBoxLoginForm.CheckState = CheckState.Unchecked;
+                checkBoxLoginForm.ForeColor = Color.FromArgb(255, 0, 0);
+            }
             CONNECT conn = new CONNECT();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -77,6 +91,7 @@ namespace RoomBookingApp
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "DATABASE ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 TextBoxUsername.Text = "";
                 TextBoxPassword.Text = "";
             }
@@ -102,7 +117,7 @@ namespace RoomBookingApp
             }
         }
 
-        private void CheckBoxLoginForm_CheckedChanged(object sender, EventArgs e)
+        private void LoginForm_Load(object sender, EventArgs e)
         {
 
         }
