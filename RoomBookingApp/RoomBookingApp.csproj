@@ -67,6 +67,12 @@
     <Compile Include="ManageEmployeesForm.Designer.cs">
       <DependentUpon>ManageEmployeesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageMeetingEmployeesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageMeetingEmployeesForm.Designer.cs">
+      <DependentUpon>ManageMeetingEmployeesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageMeetingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageEmployeesForm.resx">
       <DependentUpon>ManageEmployeesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageMeetingEmployeesForm.resx">
+      <DependentUpon>ManageMeetingEmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageMeetingsForm.resx">
       <DependentUpon>ManageMeetingsForm.cs</DependentUpon>

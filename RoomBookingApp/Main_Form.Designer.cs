@@ -35,6 +35,7 @@
             this.manageRoomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.manageMeetingEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,7 +47,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageMeetingsToolStripMenuItem,
             this.manageEmployeesToolStripMenuItem,
-            this.manageRoomsToolStripMenuItem});
+            this.manageRoomsToolStripMenuItem,
+            this.manageMeetingEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1484, 24);
@@ -98,6 +100,13 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // manageMeetingEmployeesToolStripMenuItem
+            // 
+            this.manageMeetingEmployeesToolStripMenuItem.Name = "manageMeetingEmployeesToolStripMenuItem";
+            this.manageMeetingEmployeesToolStripMenuItem.Size = new System.Drawing.Size(171, 20);
+            this.manageMeetingEmployeesToolStripMenuItem.Text = "Manage Meeting-Employees";
+            this.manageMeetingEmployeesToolStripMenuItem.Click += new System.EventHandler(this.manageMeetingEmployeesToolStripMenuItem_Click);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,5 +139,6 @@
         private System.Windows.Forms.ToolStripMenuItem manageRoomsToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem manageMeetingEmployeesToolStripMenuItem;
     }
 }

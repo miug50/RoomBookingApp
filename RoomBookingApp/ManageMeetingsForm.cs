@@ -128,7 +128,9 @@ namespace RoomBookingApp
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             textBoxIDMeeting.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            comboBoxRoomMeeting.SelectedIndex = (int)dataGridView1.CurrentRow.Cells[1].Value;
+            int cr = (int)dataGridView1.CurrentRow.Cells[1].Value;
+            cr--;
+            comboBoxRoomMeeting.SelectedIndex = cr;
             dateTimePickerMeetingStart.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value);
             dateTimePickerMeetingEnd.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[3].Value);
             textBoxMeetingDesc.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
