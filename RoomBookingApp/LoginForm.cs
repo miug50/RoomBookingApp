@@ -13,9 +13,21 @@ namespace RoomBookingApp
 {
     public partial class LoginForm : Form
     {
+        public bool Checked { get; set; }
+
         public LoginForm()
         {
             InitializeComponent();
+
+            if (IsServerConnected() == true)
+            {
+                checkBoxLoginForm.CheckState = CheckState.Checked;
+            }
+            else
+            {
+                checkBoxLoginForm.CheckState = CheckState.Unchecked;
+            }
+            
         }
 
         private void ButtonLogin_Click(object sender, EventArgs e)
@@ -72,6 +84,26 @@ namespace RoomBookingApp
             
 
 
+
+        }
+        private bool IsServerConnected()
+        {
+            CONNECT conn = new CONNECT();
+            {
+                try
+                {
+                    conn.OpenConnection();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+        private void CheckBoxLoginForm_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

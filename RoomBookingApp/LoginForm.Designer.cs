@@ -36,6 +36,7 @@
             this.TextBoxPassword = new System.Windows.Forms.TextBox();
             this.TextBoxUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxLoginForm = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -110,12 +111,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
             // 
+            // checkBoxLoginForm
+            // 
+            this.checkBoxLoginForm.AutoCheck = false;
+            this.checkBoxLoginForm.AutoSize = true;
+            this.checkBoxLoginForm.Location = new System.Drawing.Point(12, 12);
+            this.checkBoxLoginForm.Name = "checkBoxLoginForm";
+            this.checkBoxLoginForm.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxLoginForm.TabIndex = 5;
+            this.checkBoxLoginForm.Text = "SQL connection?";
+            this.checkBoxLoginForm.UseVisualStyleBackColor = true;
+            this.checkBoxLoginForm.CheckedChanged += new System.EventHandler(this.CheckBoxLoginForm_CheckedChanged);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(394, 450);
+            this.Controls.Add(this.checkBoxLoginForm);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "LoginForm";
@@ -124,6 +138,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -135,5 +150,6 @@
         private System.Windows.Forms.TextBox TextBoxPassword;
         private System.Windows.Forms.TextBox TextBoxUsername;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxLoginForm;
     }
 }

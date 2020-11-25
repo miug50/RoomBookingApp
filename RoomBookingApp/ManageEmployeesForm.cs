@@ -148,15 +148,6 @@ namespace RoomBookingApp
             }
         }
 
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void TextBoxEmailEmp_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }

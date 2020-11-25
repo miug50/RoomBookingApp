@@ -129,7 +129,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(850, 500);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // textBoxEmailEmp
             // 
@@ -138,7 +137,6 @@
             this.textBoxEmailEmp.Name = "textBoxEmailEmp";
             this.textBoxEmailEmp.Size = new System.Drawing.Size(213, 26);
             this.textBoxEmailEmp.TabIndex = 8;
-            this.textBoxEmailEmp.TextChanged += new System.EventHandler(this.TextBoxEmailEmp_TextChanged);
             // 
             // textBoxLnameEmp
             // 
