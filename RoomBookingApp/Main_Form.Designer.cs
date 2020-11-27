@@ -31,11 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.manageMeetingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageRoomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.meetingEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.manageMeetingEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,9 +45,7 @@
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageMeetingsToolStripMenuItem,
-            this.manageEmployeesToolStripMenuItem,
-            this.manageRoomsToolStripMenuItem,
-            this.manageMeetingEmployeesToolStripMenuItem});
+            this.meetingEmployeesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1484, 24);
@@ -59,29 +56,21 @@
             // 
             this.manageMeetingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.manageMeetingsToolStripMenuItem.Name = "manageMeetingsToolStripMenuItem";
-            this.manageMeetingsToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
-            this.manageMeetingsToolStripMenuItem.Text = "Manage Meetings";
+            this.manageMeetingsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.manageMeetingsToolStripMenuItem.Text = "Meetings";
             this.manageMeetingsToolStripMenuItem.Click += new System.EventHandler(this.ManageMeetingsToolStripMenuItem_Click);
             // 
-            // manageEmployeesToolStripMenuItem
+            // meetingEmployeesToolStripMenuItem
             // 
-            this.manageEmployeesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
-            this.manageEmployeesToolStripMenuItem.Text = "Manage Employees";
-            this.manageEmployeesToolStripMenuItem.Click += new System.EventHandler(this.ManageEmployeesToolStripMenuItem_Click);
-            // 
-            // manageRoomsToolStripMenuItem
-            // 
-            this.manageRoomsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.manageRoomsToolStripMenuItem.Name = "manageRoomsToolStripMenuItem";
-            this.manageRoomsToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
-            this.manageRoomsToolStripMenuItem.Text = "Manage Rooms";
-            this.manageRoomsToolStripMenuItem.Click += new System.EventHandler(this.ManageRoomsToolStripMenuItem_Click);
+            this.meetingEmployeesToolStripMenuItem.Name = "meetingEmployeesToolStripMenuItem";
+            this.meetingEmployeesToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
+            this.meetingEmployeesToolStripMenuItem.Text = "Meeting Employees";
+            this.meetingEmployeesToolStripMenuItem.Click += new System.EventHandler(this.meetingEmployeesToolStripMenuItem_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 24);
@@ -100,12 +89,17 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // manageMeetingEmployeesToolStripMenuItem
+            // label1
             // 
-            this.manageMeetingEmployeesToolStripMenuItem.Name = "manageMeetingEmployeesToolStripMenuItem";
-            this.manageMeetingEmployeesToolStripMenuItem.Size = new System.Drawing.Size(171, 20);
-            this.manageMeetingEmployeesToolStripMenuItem.Text = "Manage Meeting-Employees";
-            this.manageMeetingEmployeesToolStripMenuItem.Click += new System.EventHandler(this.manageMeetingEmployeesToolStripMenuItem_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(601, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 42);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Guest Page";
             // 
             // Main_Form
             // 
@@ -120,11 +114,13 @@
             this.MinimumSize = new System.Drawing.Size(1500, 755);
             this.Name = "Main_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main_Form";
+            this.Text = "Guest Page";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Form_FormClosing);
+            this.Load += new System.EventHandler(this.Main_Form_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -135,10 +131,9 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem manageMeetingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageEmployeesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageRoomsToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ToolStripMenuItem manageMeetingEmployeesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem meetingEmployeesToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }

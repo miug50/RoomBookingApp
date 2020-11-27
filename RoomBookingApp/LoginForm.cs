@@ -68,7 +68,7 @@ namespace RoomBookingApp
                 {
                     // show the main from
                     this.Hide();
-                    Main_Form mForm = new Main_Form();
+                    ManageForm mForm = new ManageForm();
                     mForm.Show();
                 }
                 else
@@ -120,6 +120,14 @@ namespace RoomBookingApp
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonGuest_Click(object sender, EventArgs e)
+        {
+            // show the main from
+            this.Hide();
+            Main_Form mForm = new Main_Form();
+            mForm.Show();
         }
     }
 }

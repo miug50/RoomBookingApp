@@ -165,7 +165,7 @@
             this.buttonNewMeeting.Name = "buttonNewMeeting";
             this.buttonNewMeeting.Size = new System.Drawing.Size(373, 25);
             this.buttonNewMeeting.TabIndex = 22;
-            this.buttonNewMeeting.Text = "Add New Employee";
+            this.buttonNewMeeting.Text = "Add New Meeting";
             this.buttonNewMeeting.UseVisualStyleBackColor = true;
             this.buttonNewMeeting.Click += new System.EventHandler(this.ButtonNewMeeting_Click);
             // 
@@ -256,7 +256,7 @@
             this.label1.Font = new System.Drawing.Font("Haettenschweiler", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label1.Location = new System.Drawing.Point(603, 27);
+            this.label1.Location = new System.Drawing.Point(604, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(277, 50);
             this.label1.TabIndex = 0;

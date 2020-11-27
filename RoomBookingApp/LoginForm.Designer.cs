@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ButtonGuest = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TextBoxPassword = new System.Windows.Forms.TextBox();
@@ -53,16 +54,28 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ButtonGuest);
             this.groupBox1.Controls.Add(this.buttonLogin);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.TextBoxPassword);
             this.groupBox1.Controls.Add(this.TextBoxUsername);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 220);
+            this.groupBox1.Location = new System.Drawing.Point(14, 220);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(370, 218);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // ButtonGuest
+            // 
+            this.ButtonGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ButtonGuest.Location = new System.Drawing.Point(130, 174);
+            this.ButtonGuest.Name = "ButtonGuest";
+            this.ButtonGuest.Size = new System.Drawing.Size(98, 29);
+            this.ButtonGuest.TabIndex = 5;
+            this.ButtonGuest.Text = "Guest ";
+            this.ButtonGuest.UseVisualStyleBackColor = true;
+            this.ButtonGuest.Click += new System.EventHandler(this.ButtonGuest_Click);
             // 
             // buttonLogin
             // 
@@ -155,5 +168,6 @@
         private System.Windows.Forms.TextBox TextBoxUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxLoginForm;
+        private System.Windows.Forms.Button ButtonGuest;
     }
 }

@@ -57,6 +57,7 @@ namespace RoomBookingApp
                     {
                         dataGridView1.DataSource = Meeting.GetMeetings();
                         MessageBox.Show("new Meeting Inserted Successfuly", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
                     else
                     {
@@ -90,7 +91,7 @@ namespace RoomBookingApp
             try
             {
                 int mid = Convert.ToInt32(textBoxIDMeeting);
-                int ct = Convert.ToInt32(comboBoxRoomMeeting.SelectedIndex);
+                int ct = Convert.ToInt32(comboBoxRoomMeeting.SelectedValue);
                 ct++;
                 DateTime start = dateTimePickerMeetingStart.Value;
                 int rid = ct; 
@@ -152,7 +153,7 @@ namespace RoomBookingApp
                 }
                 else
                 {
-                    MessageBox.Show("ERROR - Meeting Not Updated ", "Delete Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("ERROR - Meeting Not Deleted ", "Delete Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
