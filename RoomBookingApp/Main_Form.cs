@@ -24,8 +24,8 @@ namespace RoomBookingApp
 
         private void ManageMeetingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageMeetingsForm ManageMF = new ManageMeetingsForm();
-            ManageMF.Show();
+            ManageMeetingsForm MMF = new ManageMeetingsForm();
+            MMF.Show();
         }
 
         private void manageMeetingEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,8 +40,14 @@ namespace RoomBookingApp
 
         private void meetingEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageMeetingEmployeesForm manageE = new ManageMeetingEmployeesForm();
-            manageE.Show();
+            ManageMeetingEmployeesForm MME = new ManageMeetingEmployeesForm();
+            MME.Show();
+        }
+
+        private void vIewMeetingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewMeetingsForm vmf = new ViewMeetingsForm();
+            vmf.Show();
         }
     }
 }

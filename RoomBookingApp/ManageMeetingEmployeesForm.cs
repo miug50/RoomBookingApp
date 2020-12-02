@@ -110,5 +110,10 @@ namespace RoomBookingApp
 
             }
         }
+
+        private void labelEmployeeID_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

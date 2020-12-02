@@ -125,5 +125,33 @@ namespace RoomBookingApp
             }
 
         }
+        public DataTable GetMeetingsFromID(int id)
+        {
+            MySqlCommand command = new MySqlCommand();
+            String getQuery = "SELECT MeetingID, `Rooms.RoomID`, `MeetingStart`, `MeetingEnd`, `MeetingDesc` FROM meetings as m left join meetingemployees as me on m.MeetingID = me.`meetings.MeetingID` left join employees as e on me.`employees.EmployeeID` = e.EmployeeID where e.EmployeeID = @eid ";
+            command.CommandText = getQuery;
+            command.Connection = conn.GetConnection();
+
+            //@eid
+            command.Parameters.Add("@eid", MySqlDbType.Int32).Value = id;
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+
+            //SQL Used
+            //SELECT MeetingID, `Rooms.RoomID`, `MeetingStart`, `MeetingEnd`, `MeetingDesc` FROM meetings as m
+            //left join meetingemployees as me
+            //    on m.MeetingID = me.`meetings.MeetingID`
+            // left join employees as e
+            //    on me.`employees.EmployeeID` = e.EmployeeID
+            //where e.EmployeeID = 1;
+           
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+            
+                return table;   
+        }
+
     }
+
 }

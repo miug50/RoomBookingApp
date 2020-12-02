@@ -129,5 +129,10 @@ namespace RoomBookingApp
             Main_Form mForm = new Main_Form();
             mForm.Show();
         }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

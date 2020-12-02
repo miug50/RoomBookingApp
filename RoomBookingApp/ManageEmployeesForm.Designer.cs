@@ -30,22 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageEmployeesForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonClearEmp = new System.Windows.Forms.Button();
-            this.buttonRemoveEmp = new System.Windows.Forms.Button();
-            this.buttonEditEmp = new System.Windows.Forms.Button();
+            this.groupBoxEmployees = new System.Windows.Forms.GroupBox();
             this.buttonNewEmployee = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBoxEmailEmp = new System.Windows.Forms.TextBox();
-            this.textBoxLnameEmp = new System.Windows.Forms.TextBox();
-            this.textBoxFnameEmp = new System.Windows.Forms.TextBox();
-            this.textBoxIDEmp = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.buttonClearEmp = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonRemoveEmp = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonEditEmp = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxIDEmp = new System.Windows.Forms.TextBox();
+            this.textBoxEmailEmp = new System.Windows.Forms.TextBox();
+            this.textBoxFnameEmp = new System.Windows.Forms.TextBox();
+            this.textBoxLnameEmp = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.groupBoxEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,19 +55,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.panel1.Controls.Add(this.buttonClearEmp);
-            this.panel1.Controls.Add(this.buttonRemoveEmp);
-            this.panel1.Controls.Add(this.buttonEditEmp);
-            this.panel1.Controls.Add(this.buttonNewEmployee);
+            this.panel1.Controls.Add(this.groupBoxEmployees);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.textBoxEmailEmp);
-            this.panel1.Controls.Add(this.textBoxLnameEmp);
-            this.panel1.Controls.Add(this.textBoxFnameEmp);
-            this.panel1.Controls.Add(this.textBoxIDEmp);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -73,10 +64,44 @@
             this.panel1.Size = new System.Drawing.Size(1484, 716);
             this.panel1.TabIndex = 0;
             // 
+            // groupBoxEmployees
+            // 
+            this.groupBoxEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBoxEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.groupBoxEmployees.Controls.Add(this.buttonNewEmployee);
+            this.groupBoxEmployees.Controls.Add(this.buttonClearEmp);
+            this.groupBoxEmployees.Controls.Add(this.label2);
+            this.groupBoxEmployees.Controls.Add(this.buttonRemoveEmp);
+            this.groupBoxEmployees.Controls.Add(this.label3);
+            this.groupBoxEmployees.Controls.Add(this.buttonEditEmp);
+            this.groupBoxEmployees.Controls.Add(this.label4);
+            this.groupBoxEmployees.Controls.Add(this.label5);
+            this.groupBoxEmployees.Controls.Add(this.textBoxIDEmp);
+            this.groupBoxEmployees.Controls.Add(this.textBoxEmailEmp);
+            this.groupBoxEmployees.Controls.Add(this.textBoxFnameEmp);
+            this.groupBoxEmployees.Controls.Add(this.textBoxLnameEmp);
+            this.groupBoxEmployees.Location = new System.Drawing.Point(56, 163);
+            this.groupBoxEmployees.Name = "groupBoxEmployees";
+            this.groupBoxEmployees.Size = new System.Drawing.Size(480, 500);
+            this.groupBoxEmployees.TabIndex = 14;
+            this.groupBoxEmployees.TabStop = false;
+            // 
+            // buttonNewEmployee
+            // 
+            this.buttonNewEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNewEmployee.Location = new System.Drawing.Point(70, 278);
+            this.buttonNewEmployee.Name = "buttonNewEmployee";
+            this.buttonNewEmployee.Size = new System.Drawing.Size(373, 25);
+            this.buttonNewEmployee.TabIndex = 10;
+            this.buttonNewEmployee.Text = "Add New Employee";
+            this.buttonNewEmployee.UseVisualStyleBackColor = true;
+            this.buttonNewEmployee.Click += new System.EventHandler(this.ButtonNewEmployee_Click);
+            // 
             // buttonClearEmp
             // 
             this.buttonClearEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClearEmp.Location = new System.Drawing.Point(69, 430);
+            this.buttonClearEmp.Location = new System.Drawing.Point(70, 243);
             this.buttonClearEmp.Name = "buttonClearEmp";
             this.buttonClearEmp.Size = new System.Drawing.Size(150, 25);
             this.buttonClearEmp.TabIndex = 13;
@@ -84,10 +109,21 @@
             this.buttonClearEmp.UseVisualStyleBackColor = true;
             this.buttonClearEmp.Click += new System.EventHandler(this.ButtonClearEmp_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(178, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 29);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "ID:";
+            // 
             // buttonRemoveEmp
             // 
             this.buttonRemoveEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRemoveEmp.Location = new System.Drawing.Point(342, 430);
+            this.buttonRemoveEmp.Location = new System.Drawing.Point(343, 243);
             this.buttonRemoveEmp.Name = "buttonRemoveEmp";
             this.buttonRemoveEmp.Size = new System.Drawing.Size(100, 25);
             this.buttonRemoveEmp.TabIndex = 12;
@@ -95,10 +131,21 @@
             this.buttonRemoveEmp.UseVisualStyleBackColor = true;
             this.buttonRemoveEmp.Click += new System.EventHandler(this.ButtonRemoveEmp_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(83, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(137, 29);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "First Name:";
+            // 
             // buttonEditEmp
             // 
             this.buttonEditEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditEmp.Location = new System.Drawing.Point(229, 430);
+            this.buttonEditEmp.Location = new System.Drawing.Point(230, 243);
             this.buttonEditEmp.Name = "buttonEditEmp";
             this.buttonEditEmp.Size = new System.Drawing.Size(100, 25);
             this.buttonEditEmp.TabIndex = 11;
@@ -106,16 +153,62 @@
             this.buttonEditEmp.UseVisualStyleBackColor = true;
             this.buttonEditEmp.Click += new System.EventHandler(this.ButtonEditEmp_Click);
             // 
-            // buttonNewEmployee
+            // label4
             // 
-            this.buttonNewEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNewEmployee.Location = new System.Drawing.Point(69, 465);
-            this.buttonNewEmployee.Name = "buttonNewEmployee";
-            this.buttonNewEmployee.Size = new System.Drawing.Size(373, 25);
-            this.buttonNewEmployee.TabIndex = 10;
-            this.buttonNewEmployee.Text = "Add New Employee";
-            this.buttonNewEmployee.UseVisualStyleBackColor = true;
-            this.buttonNewEmployee.Click += new System.EventHandler(this.ButtonNewEmployee_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(86, 130);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(134, 29);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Last Name:";
+            this.label4.Click += new System.EventHandler(this.Label4_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(140, 179);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 29);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Email:";
+            // 
+            // textBoxIDEmp
+            // 
+            this.textBoxIDEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxIDEmp.Location = new System.Drawing.Point(230, 38);
+            this.textBoxIDEmp.Name = "textBoxIDEmp";
+            this.textBoxIDEmp.ReadOnly = true;
+            this.textBoxIDEmp.Size = new System.Drawing.Size(213, 26);
+            this.textBoxIDEmp.TabIndex = 5;
+            // 
+            // textBoxEmailEmp
+            // 
+            this.textBoxEmailEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxEmailEmp.Location = new System.Drawing.Point(230, 183);
+            this.textBoxEmailEmp.Name = "textBoxEmailEmp";
+            this.textBoxEmailEmp.Size = new System.Drawing.Size(213, 26);
+            this.textBoxEmailEmp.TabIndex = 8;
+            // 
+            // textBoxFnameEmp
+            // 
+            this.textBoxFnameEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxFnameEmp.Location = new System.Drawing.Point(230, 84);
+            this.textBoxFnameEmp.Name = "textBoxFnameEmp";
+            this.textBoxFnameEmp.Size = new System.Drawing.Size(213, 26);
+            this.textBoxFnameEmp.TabIndex = 6;
+            // 
+            // textBoxLnameEmp
+            // 
+            this.textBoxLnameEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxLnameEmp.Location = new System.Drawing.Point(230, 134);
+            this.textBoxLnameEmp.Name = "textBoxLnameEmp";
+            this.textBoxLnameEmp.Size = new System.Drawing.Size(213, 26);
+            this.textBoxLnameEmp.TabIndex = 7;
+            this.textBoxLnameEmp.TextChanged += new System.EventHandler(this.TextBox3_TextChanged);
             // 
             // dataGridView1
             // 
@@ -125,6 +218,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(570, 163);
             this.dataGridView1.Name = "dataGridView1";
@@ -132,85 +226,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(850, 500);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
-            // 
-            // textBoxEmailEmp
-            // 
-            this.textBoxEmailEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxEmailEmp.Location = new System.Drawing.Point(229, 370);
-            this.textBoxEmailEmp.Name = "textBoxEmailEmp";
-            this.textBoxEmailEmp.Size = new System.Drawing.Size(213, 26);
-            this.textBoxEmailEmp.TabIndex = 8;
-            // 
-            // textBoxLnameEmp
-            // 
-            this.textBoxLnameEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxLnameEmp.Location = new System.Drawing.Point(229, 321);
-            this.textBoxLnameEmp.Name = "textBoxLnameEmp";
-            this.textBoxLnameEmp.Size = new System.Drawing.Size(213, 26);
-            this.textBoxLnameEmp.TabIndex = 7;
-            this.textBoxLnameEmp.TextChanged += new System.EventHandler(this.TextBox3_TextChanged);
-            // 
-            // textBoxFnameEmp
-            // 
-            this.textBoxFnameEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxFnameEmp.Location = new System.Drawing.Point(229, 271);
-            this.textBoxFnameEmp.Name = "textBoxFnameEmp";
-            this.textBoxFnameEmp.Size = new System.Drawing.Size(213, 26);
-            this.textBoxFnameEmp.TabIndex = 6;
-            // 
-            // textBoxIDEmp
-            // 
-            this.textBoxIDEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIDEmp.Location = new System.Drawing.Point(229, 225);
-            this.textBoxIDEmp.Name = "textBoxIDEmp";
-            this.textBoxIDEmp.ReadOnly = true;
-            this.textBoxIDEmp.Size = new System.Drawing.Size(213, 26);
-            this.textBoxIDEmp.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(139, 366);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 29);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Email:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(85, 317);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(134, 29);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Last Name:";
-            this.label4.Click += new System.EventHandler(this.Label4_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(82, 267);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 29);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "First Name:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(177, 221);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 29);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "ID:";
             // 
             // panel2
             // 
@@ -247,7 +262,8 @@
             this.Text = "ManageEmployeesForm";
             this.Load += new System.EventHandler(this.ManageEmployeesForm_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.groupBoxEmployees.ResumeLayout(false);
+            this.groupBoxEmployees.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -273,5 +289,6 @@
         private System.Windows.Forms.Button buttonRemoveEmp;
         private System.Windows.Forms.Button buttonEditEmp;
         private System.Windows.Forms.Button buttonNewEmployee;
+        private System.Windows.Forms.GroupBox groupBoxEmployees;
     }
 }
