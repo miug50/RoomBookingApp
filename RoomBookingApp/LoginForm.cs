@@ -134,5 +134,19 @@ namespace RoomBookingApp
         {
             Application.Exit();
         }
+
+        private void checkBoxLoginForm_Click(object sender, EventArgs e)
+        {
+            if (IsServerConnected() == true)
+            {
+                checkBoxLoginForm.CheckState = CheckState.Checked;
+                checkBoxLoginForm.ForeColor = Color.FromArgb(0, 128, 0);
+            }
+            else
+            {
+                checkBoxLoginForm.CheckState = CheckState.Unchecked;
+                checkBoxLoginForm.ForeColor = Color.FromArgb(255, 0, 0);
+            }
+        }
     }
 }

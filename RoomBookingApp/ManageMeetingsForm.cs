@@ -90,7 +90,7 @@ namespace RoomBookingApp
         {
             try
             {
-                int mid = Convert.ToInt32(textBoxIDMeeting);
+                int mid = Convert.ToInt32(textBoxIDMeeting.Text);
                 int ct = Convert.ToInt32(comboBoxRoomMeeting.SelectedValue);
                 ct++;
                 DateTime start = dateTimePickerMeetingStart.Value;

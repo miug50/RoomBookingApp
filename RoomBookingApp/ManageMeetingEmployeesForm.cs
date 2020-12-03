@@ -35,40 +35,51 @@ namespace RoomBookingApp
         {
             TextBoxIDMeetingEmployees.Text = "";
             comboBoxMeetings.SelectedIndex = 0;
-            
-        }
-
-        private void buttonEditMeetingEMP_Click(object sender, EventArgs e)
-        {
-
+                        
         }
 
         private void buttonNewMeetingEMP_Click(object sender, EventArgs e)
         {
             MEETINGEMPLOYEES MeetingE = new MEETINGEMPLOYEES();
+            ROOM room = new ROOM();
+            
                 try
                 {
                 int MID = Convert.ToInt32(comboBoxMeetings.SelectedValue);
                 int empID = 0;
+                int cap = room.RoomCap(MID);
+                int c = 0;
 
+                
                 for (int i = 0; i < dataGridViewMeetingEmployeeLst.RowCount; i++)
                 {
                     if (Convert.ToBoolean(dataGridViewMeetingEmployeeLst.Rows[i].Cells["chk"].Value) == true)
                     {
+                        c++;
                         empID = Convert.ToInt32(dataGridViewMeetingEmployeeLst.Rows[i].Cells[1].Value);
-                    
-                        if (MeetingE.InsertMeetingEmployee(empID, MID))
+                        if (c <= cap)
                         {
-                            dataGridViewManageEmployees.DataSource = MeetingE.GetMeetingEmployees();
-                            MessageBox.Show("new Meeting Employee Inserted Successfuly", "Add Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
+
+                            if (MeetingE.InsertMeetingEmployee(empID, MID))
+                            {
+
+                                dataGridViewManageEmployees.DataSource = MeetingE.GetMeetingEmployees();
+                                MessageBox.Show("new Meeting Employees Inserted Successfuly", "Add Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Meeting Employee was Not Inserted", "Add Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                        else
+                        else 
                         {
-                            MessageBox.Show("Meeting Employee was Not Inserted", "Add Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Room Capacity was exceeded for selected meeting - Room Capacity = " + cap.ToString(), "Add Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
                         }
-                    
+                 
                     }
-                
+
                 }
                 
             }

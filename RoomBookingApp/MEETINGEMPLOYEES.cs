@@ -39,7 +39,7 @@ namespace RoomBookingApp
 
         public DataTable GetMeetingEmployees()
         {
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `MeetingEmployees`", conn.GetConnection());
+            MySqlCommand command = new MySqlCommand("SELECT a.* FROM `MeetingEmployees` as a, Meetings as b where a.`meetings.MeetingID` =b.MeetingID and b.meetingstart > DATE_ADD(NOW(), INTERVAL -1 day)", conn.GetConnection());
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
 
@@ -72,5 +72,6 @@ namespace RoomBookingApp
                 return false;
             }
         }
+
     }
 }

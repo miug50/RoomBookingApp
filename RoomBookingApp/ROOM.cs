@@ -103,5 +103,26 @@ namespace RoomBookingApp
                 return false;
             }
         }
+
+        public int RoomCap(int id)
+        {
+            MySqlCommand command = new MySqlCommand();
+            string insertQuery = "SELECT RoomCapacity FROM rooms as r left join meetings as m on r.RoomID =  m.`Rooms.RoomID` where m.MeetingID = @mid";
+            command.CommandText = insertQuery;
+            command.Parameters.Add("@mid", MySqlDbType.Int32).Value = id;
+            command.Connection = conn.GetConnection();
+            conn.OpenConnection();
+            var Reader = command.ExecuteReader();
+            if (Reader.Read())
+            {
+                int res = Convert.ToInt32(Reader[0]);
+                conn.CloseConnection();
+                return res;
+            }
+            conn.CloseConnection();
+            return 0;
+            
+        }
+        
+        }
     }
-}

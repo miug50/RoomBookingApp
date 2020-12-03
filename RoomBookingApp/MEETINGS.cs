@@ -15,7 +15,7 @@ namespace RoomBookingApp
         //Function to get Meetings
         public DataTable GetMeetings()
         {
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `meetings`", conn.GetConnection());
+            MySqlCommand command = new MySqlCommand("SELECT MeetingID, cast(`MeetingStart` as Time) as 'meeting start', cast(`MeetingEnd` as Time) as 'meeting start', MeetingDesc FROM `meetings` where meetingstart > DATE_ADD(NOW(), INTERVAL -1 day)", conn.GetConnection());
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
 
@@ -52,7 +52,7 @@ namespace RoomBookingApp
             command.Parameters.Add("@mri", MySqlDbType.Int32).Value = roomid;
             command.Parameters.Add("@mms", MySqlDbType.DateTime).Value = start;
             command.Parameters.Add("@mme", MySqlDbType.DateTime).Value = finish;
-            command.Parameters.Add("@mmd", MySqlDbType.Text).Value = desc;
+            command.Parameters.Add("@mmd", MySqlDbType.VarChar).Value = desc;
 
             conn.OpenConnection();
 
@@ -83,15 +83,13 @@ namespace RoomBookingApp
             command.Parameters.Add("@mri", MySqlDbType.Int32).Value = roomid;
             command.Parameters.Add("@mms", MySqlDbType.DateTime).Value = start;
             command.Parameters.Add("@mme", MySqlDbType.DateTime).Value = finish;
-            command.Parameters.Add("@mmd", MySqlDbType.Text).Value = desc;
+            command.Parameters.Add("@mmd", MySqlDbType.VarChar).Value = desc;
 
             conn.OpenConnection();
 
             if (command.ExecuteNonQuery() == 1)
             {
                 return true;
-
-
             }
             else
             {
@@ -150,6 +148,7 @@ namespace RoomBookingApp
                 adapter.Fill(table);
             
                 return table;   
+
         }
 
     }

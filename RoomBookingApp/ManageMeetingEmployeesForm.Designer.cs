@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label labelMeetingdesc;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageMeetingEmployeesForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxMeetingEmployee = new System.Windows.Forms.GroupBox();
@@ -37,13 +38,13 @@
             this.comboBoxMeetings = new System.Windows.Forms.ComboBox();
             this.TextBoxIDMeetingEmployees = new System.Windows.Forms.TextBox();
             this.buttonClearMeetingEMP = new System.Windows.Forms.Button();
-            this.labelMeetingID = new System.Windows.Forms.Label();
             this.buttonRemoveMeetingEMP = new System.Windows.Forms.Button();
             this.labelEmployeeID = new System.Windows.Forms.Label();
             this.buttonNewMeetingEMP = new System.Windows.Forms.Button();
             this.dataGridViewManageEmployees = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            labelMeetingdesc = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBoxMeetingEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMeetingEmployeeLst)).BeginInit();
@@ -73,7 +74,7 @@
             this.groupBoxMeetingEmployee.Controls.Add(this.comboBoxMeetings);
             this.groupBoxMeetingEmployee.Controls.Add(this.TextBoxIDMeetingEmployees);
             this.groupBoxMeetingEmployee.Controls.Add(this.buttonClearMeetingEMP);
-            this.groupBoxMeetingEmployee.Controls.Add(this.labelMeetingID);
+            this.groupBoxMeetingEmployee.Controls.Add(labelMeetingdesc);
             this.groupBoxMeetingEmployee.Controls.Add(this.buttonRemoveMeetingEMP);
             this.groupBoxMeetingEmployee.Controls.Add(this.labelEmployeeID);
             this.groupBoxMeetingEmployee.Controls.Add(this.buttonNewMeetingEMP);
@@ -140,16 +141,16 @@
             this.buttonClearMeetingEMP.UseVisualStyleBackColor = true;
             this.buttonClearMeetingEMP.Click += new System.EventHandler(this.buttonClearMeetingEMP_Click);
             // 
-            // labelMeetingID
+            // labelMeetingdesc
             // 
-            this.labelMeetingID.AutoSize = true;
-            this.labelMeetingID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMeetingID.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelMeetingID.Location = new System.Drawing.Point(37, 86);
-            this.labelMeetingID.Name = "labelMeetingID";
-            this.labelMeetingID.Size = new System.Drawing.Size(135, 29);
-            this.labelMeetingID.TabIndex = 20;
-            this.labelMeetingID.Text = "Meeting ID:";
+            labelMeetingdesc.AutoSize = true;
+            labelMeetingdesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            labelMeetingdesc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            labelMeetingdesc.Location = new System.Drawing.Point(6, 85);
+            labelMeetingdesc.Name = "labelMeetingdesc";
+            labelMeetingdesc.Size = new System.Drawing.Size(167, 29);
+            labelMeetingdesc.TabIndex = 20;
+            labelMeetingdesc.Text = "Meeting Desc:";
             // 
             // buttonRemoveMeetingEMP
             // 
@@ -258,7 +259,6 @@
         private System.Windows.Forms.Button buttonRemoveMeetingEMP;
         private System.Windows.Forms.Button buttonNewMeetingEMP;
         private System.Windows.Forms.Label labelEmployeeID;
-        private System.Windows.Forms.Label labelMeetingID;
         private System.Windows.Forms.TextBox TextBoxIDMeetingEmployees;
         private System.Windows.Forms.Label labelIDMeetingEmployee;
         private System.Windows.Forms.ComboBox comboBoxMeetings;
