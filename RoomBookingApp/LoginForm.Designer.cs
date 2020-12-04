@@ -169,7 +169,7 @@
             this.checkBoxLoginForm.TabIndex = 5;
             this.checkBoxLoginForm.Text = "SQL connection?";
             this.checkBoxLoginForm.UseVisualStyleBackColor = false;
-            this.checkBoxLoginForm.Click += new System.EventHandler(this.checkBoxLoginForm_Click);
+            this.checkBoxLoginForm.Click += new System.EventHandler(this.CheckBoxLoginForm_Click);
             // 
             // LoginForm
             // 

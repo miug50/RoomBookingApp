@@ -65,14 +65,14 @@
             this.manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
             this.manageEmployeesToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
             this.manageEmployeesToolStripMenuItem.Text = "Manage Employees";
-            this.manageEmployeesToolStripMenuItem.Click += new System.EventHandler(this.manageEmployeesToolStripMenuItem_Click);
+            this.manageEmployeesToolStripMenuItem.Click += new System.EventHandler(this.ManageEmployeesToolStripMenuItem_Click);
             // 
             // manageRoomsToolStripMenuItem
             // 
             this.manageRoomsToolStripMenuItem.Name = "manageRoomsToolStripMenuItem";
             this.manageRoomsToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
             this.manageRoomsToolStripMenuItem.Text = "Manage Rooms";
-            this.manageRoomsToolStripMenuItem.Click += new System.EventHandler(this.manageRoomsToolStripMenuItem_Click);
+            this.manageRoomsToolStripMenuItem.Click += new System.EventHandler(this.ManageRoomsToolStripMenuItem_Click);
             // 
             // label1
             // 

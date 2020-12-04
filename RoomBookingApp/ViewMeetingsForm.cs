@@ -29,7 +29,7 @@ namespace RoomBookingApp
             dataGridViewViewMeetings.DataSource = meeting.GetMeetingsFromID(i);
         }
 
-        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        private void ComboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int i = Convert.ToInt32(comboBox1.SelectedValue);
             dataGridViewViewMeetings.DataSource = meeting.GetMeetingsFromID(i);

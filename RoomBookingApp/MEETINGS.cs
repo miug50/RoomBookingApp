@@ -15,7 +15,7 @@ namespace RoomBookingApp
         //Function to get Meetings
         public DataTable GetMeetings()
         {
-            MySqlCommand command = new MySqlCommand("SELECT MeetingID, cast(`MeetingStart` as Time) as 'meeting start', cast(`MeetingEnd` as Time) as 'meeting start', MeetingDesc FROM `meetings` where meetingstart > DATE_ADD(NOW(), INTERVAL -1 day)", conn.GetConnection());
+            MySqlCommand command = new MySqlCommand("SELECT MeetingID, cast(`MeetingStart` as Time) as 'meeting start', cast(`MeetingEnd` as Time) as 'meeting End', MeetingDesc FROM `meetings` where meetingstart > DATE_ADD(NOW(), INTERVAL -1 day)", conn.GetConnection());
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
 

@@ -100,18 +100,18 @@ namespace RoomBookingApp
 
                 if (start < DateTime.Now) 
                 {
-                    MessageBox.Show("the date/time must be > current date/time", "invalid Date/time", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The date/time must be > current date/time", "invalid Date/time", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (end < start)
                 {
-                    MessageBox.Show("the meeting end must be before the meeting start", "invalid Date/time", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The meeting Start must be before the meeting End", "invalid Date/time", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     if (Meeting.EditMeeting(mid, rid, start, end, desc))
                     {
                         dataGridView1.DataSource = Meeting.GetMeetings();
-                        MessageBox.Show("new Meeting Inserted Successfuly", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("New Meeting Inserted Successfuly", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {

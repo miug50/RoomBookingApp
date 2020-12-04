@@ -85,6 +85,8 @@ namespace RoomBookingApp
                     else
                     {
                         MessageBox.Show("this username or password Dosen't Exisit", "wrong data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        TextBoxUsername.Text = "";
+                        TextBoxPassword.Text = "";
                     }
                 }
             }
@@ -135,7 +137,7 @@ namespace RoomBookingApp
             Application.Exit();
         }
 
-        private void checkBoxLoginForm_Click(object sender, EventArgs e)
+        private void CheckBoxLoginForm_Click(object sender, EventArgs e)
         {
             if (IsServerConnected() == true)
             {
