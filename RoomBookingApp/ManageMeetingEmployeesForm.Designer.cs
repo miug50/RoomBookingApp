@@ -52,6 +52,17 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // labelMeetingdesc
+            // 
+            labelMeetingdesc.AutoSize = true;
+            labelMeetingdesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            labelMeetingdesc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            labelMeetingdesc.Location = new System.Drawing.Point(6, 85);
+            labelMeetingdesc.Name = "labelMeetingdesc";
+            labelMeetingdesc.Size = new System.Drawing.Size(167, 29);
+            labelMeetingdesc.TabIndex = 20;
+            labelMeetingdesc.Text = "Meeting Desc:";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -88,6 +99,7 @@
             // 
             this.dataGridViewMeetingEmployeeLst.AllowUserToAddRows = false;
             this.dataGridViewMeetingEmployeeLst.AllowUserToDeleteRows = false;
+            this.dataGridViewMeetingEmployeeLst.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
             this.dataGridViewMeetingEmployeeLst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMeetingEmployeeLst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chk});
@@ -117,6 +129,7 @@
             // 
             this.comboBoxMeetings.FormattingEnabled = true;
             this.comboBoxMeetings.Location = new System.Drawing.Point(182, 94);
+            this.comboBoxMeetings.MaxDropDownItems = 12;
             this.comboBoxMeetings.Name = "comboBoxMeetings";
             this.comboBoxMeetings.Size = new System.Drawing.Size(265, 21);
             this.comboBoxMeetings.TabIndex = 29;
@@ -140,17 +153,6 @@
             this.buttonClearMeetingEMP.Text = "Clear Fields";
             this.buttonClearMeetingEMP.UseVisualStyleBackColor = true;
             this.buttonClearMeetingEMP.Click += new System.EventHandler(this.buttonClearMeetingEMP_Click);
-            // 
-            // labelMeetingdesc
-            // 
-            labelMeetingdesc.AutoSize = true;
-            labelMeetingdesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            labelMeetingdesc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            labelMeetingdesc.Location = new System.Drawing.Point(6, 85);
-            labelMeetingdesc.Name = "labelMeetingdesc";
-            labelMeetingdesc.Size = new System.Drawing.Size(167, 29);
-            labelMeetingdesc.TabIndex = 20;
-            labelMeetingdesc.Text = "Meeting Desc:";
             // 
             // buttonRemoveMeetingEMP
             // 

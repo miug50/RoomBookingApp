@@ -39,5 +39,13 @@ namespace RoomBookingApp
             ManageRoomsForm ManageRF = new ManageRoomsForm();
             ManageRF.Show();
         }
+
+        private void logFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MEETINGS meeting = new MEETINGS();
+            meeting.getcsvdata();
+            MessageBox.Show("Last 6 months saved", "data saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
     }
 }

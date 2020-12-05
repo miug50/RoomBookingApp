@@ -151,6 +151,46 @@ namespace RoomBookingApp
 
         }
 
+        public void getcsvdata()
+        {
+            conn.OpenConnection();
+            String getQuery = "SELECT m.`MeetingID`,m.`MeetingStart`,m.`MeetingDesc`,r.`RoomName`, count(me.`employees.EmployeeID`)  FROM `meetings` as m left join rooms as r on m.`Rooms.RoomID` = r.RoomID left join meetingemployees as me on m.MeetingID = me.`meetings.MeetingID` where `MeetingStart` > DATE_ADD(NOW(), INTERVAL -6 month) group by `MeetingID`";
+            
+            using (var cmd = new MySqlCommand(getQuery, conn.GetConnection()))
+            {
+                using (var reader = cmd.ExecuteReader())
+                {
+                    try
+                    {
+                        using (System.IO.StreamWriter file = new System.IO.StreamWriter("Meetingreport.csv", false))
+                        {
+                            file.WriteLine("id" + "," + "Meeeing Start" + "," + "Description" + "," + "Room Name" + "," + "Meeting Count");
+                        }
+                        while (reader.Read())
+                        {
+                            var ID = reader.GetString(0);
+                            var Start = reader.GetString(1);
+                            var desc = reader.GetString(2);
+                            var Rname = reader.GetString(3);
+                            var count = reader.GetString(4);
+
+                            using (System.IO.StreamWriter file = new System.IO.StreamWriter("Meetingreport.csv", true))
+                            {                        
+                                file.WriteLine(ID + "," + Start + "," + desc + "," + Rname + "," + count);
+                            }
+                        
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ApplicationException("something went wrong: ", ex);
+                    }
+
+                }
+            }
+            
+        }
+
     }
 
 }
