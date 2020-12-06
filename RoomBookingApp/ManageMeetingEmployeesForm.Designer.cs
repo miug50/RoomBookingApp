@@ -152,7 +152,7 @@
             this.buttonClearMeetingEMP.TabIndex = 27;
             this.buttonClearMeetingEMP.Text = "Clear Fields";
             this.buttonClearMeetingEMP.UseVisualStyleBackColor = true;
-            this.buttonClearMeetingEMP.Click += new System.EventHandler(this.buttonClearMeetingEMP_Click);
+            this.buttonClearMeetingEMP.Click += new System.EventHandler(this.ButtonClearMeetingEMP_Click);
             // 
             // buttonRemoveMeetingEMP
             // 
@@ -163,7 +163,7 @@
             this.buttonRemoveMeetingEMP.TabIndex = 26;
             this.buttonRemoveMeetingEMP.Text = "Remove";
             this.buttonRemoveMeetingEMP.UseVisualStyleBackColor = true;
-            this.buttonRemoveMeetingEMP.Click += new System.EventHandler(this.buttonRemoveMeetingEMP_Click);
+            this.buttonRemoveMeetingEMP.Click += new System.EventHandler(this.ButtonRemoveMeetingEMP_Click);
             // 
             // labelEmployeeID
             // 
@@ -175,7 +175,6 @@
             this.labelEmployeeID.Size = new System.Drawing.Size(134, 29);
             this.labelEmployeeID.TabIndex = 22;
             this.labelEmployeeID.Text = "Employees";
-            this.labelEmployeeID.Click += new System.EventHandler(this.labelEmployeeID_Click);
             // 
             // buttonNewMeetingEMP
             // 
@@ -186,7 +185,7 @@
             this.buttonNewMeetingEMP.TabIndex = 24;
             this.buttonNewMeetingEMP.Text = "Add New Meeting Employees";
             this.buttonNewMeetingEMP.UseVisualStyleBackColor = true;
-            this.buttonNewMeetingEMP.Click += new System.EventHandler(this.buttonNewMeetingEMP_Click);
+            this.buttonNewMeetingEMP.Click += new System.EventHandler(this.ButtonNewMeetingEMP_Click);
             // 
             // dataGridViewManageEmployees
             // 
@@ -203,7 +202,7 @@
             this.dataGridViewManageEmployees.ReadOnly = true;
             this.dataGridViewManageEmployees.Size = new System.Drawing.Size(850, 500);
             this.dataGridViewManageEmployees.TabIndex = 11;
-            this.dataGridViewManageEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewManageEmployees_CellClick);
+            this.dataGridViewManageEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewManageEmployees_CellClick);
             // 
             // panel2
             // 

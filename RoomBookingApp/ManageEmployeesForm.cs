@@ -19,16 +19,6 @@ namespace RoomBookingApp
             InitializeComponent();
         }
 
-        private void Label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ButtonClearEmp_Click(object sender, EventArgs e)
         {
             textBoxIDEmp.Text = "";
@@ -39,32 +29,34 @@ namespace RoomBookingApp
 
         private void ButtonNewEmployee_Click(object sender, EventArgs e)
         {
-
-            String Fname = textBoxFnameEmp.Text;
-            String Lname = textBoxLnameEmp.Text;
-            String Email = textBoxEmailEmp.Text;
-
-            if(Fname.Trim().Equals("") || Lname.Trim().Equals("") || Email.Trim().Equals(""))
+            try
             {
-                MessageBox.Show("Required Fields - First & Last Name + Email", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                Boolean insertClient = Employee.InsertEmployee(Fname, Lname, Email);
+                String Fname = textBoxFnameEmp.Text;
+                String Lname = textBoxLnameEmp.Text;
+                String Email = textBoxEmailEmp.Text;
 
-                if (insertClient)
+                if (Fname.Trim().Equals("") || Lname.Trim().Equals("") || Email.Trim().Equals(""))
                 {
-                    dataGridView1.DataSource = Employee.GetEmployee();
-                    MessageBox.Show("new Employee Inserted Successfuly", "Add Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                    MessageBox.Show("Required Fields - First & Last Name + Email", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("ERROR - new Employee Not Inserted ", "Add Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Boolean insertClient = Employee.InsertEmployee(Fname, Lname, Email);
+                    if (insertClient)
+                    {
+                        dataGridView1.DataSource = Employee.GetEmployee();
+                        MessageBox.Show("New Employee Inserted Successfuly", "Add Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("ERROR - New Employee Not Inserted ", "Add Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Add Employee Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void ManageEmployeesForm_Load(object sender, EventArgs e)
@@ -91,7 +83,6 @@ namespace RoomBookingApp
                 else
                 {
                     Boolean EditClient = Employee.EditEmployee(id, Fname, Lname, Email);
-
                     if (EditClient)
                     {
                         dataGridView1.DataSource = Employee.GetEmployee();
@@ -100,17 +91,14 @@ namespace RoomBookingApp
                     }
                     else
                     {
-                        MessageBox.Show("ERROR - Employee Not Updated ", "Add Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("ERROR - Employee Not Updated ", "Edit Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "ID error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            
+            }           
         }
 
         //display the selected Employee data from the datagridview to the textboxes. 
@@ -144,10 +132,7 @@ namespace RoomBookingApp
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Delete Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
-
     }
-
 }

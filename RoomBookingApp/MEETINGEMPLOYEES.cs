@@ -34,25 +34,22 @@ namespace RoomBookingApp
                 conn.CloseConnection();
                 return false;
             }
-
         }
 
         public DataTable GetMeetingEmployees()
         {
+            //when getting the meeting employee data the SQL statment only selects values from today
             MySqlCommand command = new MySqlCommand("SELECT a.* FROM `MeetingEmployees` as a, Meetings as b where a.`meetings.MeetingID` =b.MeetingID and b.meetingstart > DATE_ADD(NOW(), INTERVAL -1 day)", conn.GetConnection());
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
-
             adapter.SelectCommand = command;
             adapter.Fill(table);
-
 
             return table;
         }
 
-        public bool deleteMeetingEmployee(int id)
+        public bool DeleteMeetingEmployee(int id)
         {
-
             MySqlCommand command = new MySqlCommand();
             string removeQuery = "DELETE FROM `MeetingEmployees` WHERE `MeetingEmployeeID` = @meid";
             command.CommandText = removeQuery;
@@ -72,6 +69,5 @@ namespace RoomBookingApp
                 return false;
             }
         }
-
     }
 }

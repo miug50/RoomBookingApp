@@ -67,14 +67,14 @@
             this.meetingEmployeesToolStripMenuItem.Name = "meetingEmployeesToolStripMenuItem";
             this.meetingEmployeesToolStripMenuItem.Size = new System.Drawing.Size(148, 20);
             this.meetingEmployeesToolStripMenuItem.Text = "Add Meeting Employees";
-            this.meetingEmployeesToolStripMenuItem.Click += new System.EventHandler(this.meetingEmployeesToolStripMenuItem_Click);
+            this.meetingEmployeesToolStripMenuItem.Click += new System.EventHandler(this.MeetingEmployeesToolStripMenuItem_Click);
             // 
             // vIewMeetingsToolStripMenuItem
             // 
             this.vIewMeetingsToolStripMenuItem.Name = "vIewMeetingsToolStripMenuItem";
             this.vIewMeetingsToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.vIewMeetingsToolStripMenuItem.Text = "VIew Meetings";
-            this.vIewMeetingsToolStripMenuItem.Click += new System.EventHandler(this.vIewMeetingsToolStripMenuItem_Click);
+            this.vIewMeetingsToolStripMenuItem.Click += new System.EventHandler(this.ViewMeetingsToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -126,7 +126,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Guest Page";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Form_FormClosing);
-            this.Load += new System.EventHandler(this.Main_Form_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);

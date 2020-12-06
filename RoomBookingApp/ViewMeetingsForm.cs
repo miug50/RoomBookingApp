@@ -18,10 +18,11 @@ namespace RoomBookingApp
         }
 
         readonly MEETINGS meeting = new MEETINGS();
-        readonly EMPLOYEE emp = new EMPLOYEE();
 
         private void ViewMeetingsForm_Load(object sender, EventArgs e)
         {
+            EMPLOYEE emp = new EMPLOYEE();
+
             comboBox1.DataSource = emp.GetEmployee();
             comboBox1.DisplayMember = "EmployeeEmail";
             comboBox1.ValueMember = "EmployeeID";

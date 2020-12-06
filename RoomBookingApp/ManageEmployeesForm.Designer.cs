@@ -163,7 +163,6 @@
             this.label4.Size = new System.Drawing.Size(134, 29);
             this.label4.TabIndex = 3;
             this.label4.Text = "Last Name:";
-            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // label5
             // 
@@ -208,7 +207,6 @@
             this.textBoxLnameEmp.Name = "textBoxLnameEmp";
             this.textBoxLnameEmp.Size = new System.Drawing.Size(213, 26);
             this.textBoxLnameEmp.TabIndex = 7;
-            this.textBoxLnameEmp.TextChanged += new System.EventHandler(this.TextBox3_TextChanged);
             // 
             // dataGridView1
             // 

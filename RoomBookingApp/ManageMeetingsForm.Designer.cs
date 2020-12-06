@@ -128,7 +128,6 @@
             this.dateTimePickerMeetingStart.Name = "dateTimePickerMeetingStart";
             this.dateTimePickerMeetingStart.Size = new System.Drawing.Size(213, 20);
             this.dateTimePickerMeetingStart.TabIndex = 29;
-            this.dateTimePickerMeetingStart.ValueChanged += new System.EventHandler(this.DateTimePickerMeetingStart_ValueChanged);
             // 
             // label3
             // 
@@ -252,7 +251,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(850, 500);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // panel2
             // 

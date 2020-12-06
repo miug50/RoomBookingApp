@@ -17,40 +17,43 @@ namespace RoomBookingApp
         {
             InitializeComponent();
         }
+        
+        readonly MEETINGEMPLOYEES ME = new MEETINGEMPLOYEES();
 
         private void ManageMeetingEmployeesForm_Load(object sender, EventArgs e)
         {
-            MEETINGEMPLOYEES ME = new MEETINGEMPLOYEES();
+            
             EMPLOYEE emp = new EMPLOYEE();
             MEETINGS meet = new MEETINGS();
+
+            //loads the datagrid views with data
             dataGridViewManageEmployees.DataSource = ME.GetMeetingEmployees();
+            dataGridViewMeetingEmployeeLst.DataSource = emp.GetEmployee();
+
+            //loads the combo boxes with data
             comboBoxMeetings.DataSource = meet.GetMeetings();
             comboBoxMeetings.DisplayMember = "MeetingDesc";
             comboBoxMeetings.ValueMember = "MeetingID";
-
-            dataGridViewMeetingEmployeeLst.DataSource = emp.GetEmployee();
         }
 
-        private void buttonClearMeetingEMP_Click(object sender, EventArgs e)
+        private void ButtonClearMeetingEMP_Click(object sender, EventArgs e)
         {
             TextBoxIDMeetingEmployees.Text = "";
-            comboBoxMeetings.SelectedIndex = 0;
-                        
+            comboBoxMeetings.SelectedIndex = 0;            
         }
 
-        private void buttonNewMeetingEMP_Click(object sender, EventArgs e)
+        private void ButtonNewMeetingEMP_Click(object sender, EventArgs e)
         {
-            MEETINGEMPLOYEES MeetingE = new MEETINGEMPLOYEES();
             ROOM room = new ROOM();
             
-                try
-                {
+            try
+            {
                 int MID = Convert.ToInt32(comboBoxMeetings.SelectedValue);
                 int empID = 0;
                 int cap = room.RoomCap(MID);
                 int c = 0;
 
-                
+                //this loop checks throgh all the rows for any checked employees. this checked employees are added to the selected meeting one by one. 
                 for (int i = 0; i < dataGridViewMeetingEmployeeLst.RowCount; i++)
                 {
                     if (Convert.ToBoolean(dataGridViewMeetingEmployeeLst.Rows[i].Cells["chk"].Value) == true)
@@ -59,12 +62,9 @@ namespace RoomBookingApp
                         empID = Convert.ToInt32(dataGridViewMeetingEmployeeLst.Rows[i].Cells[1].Value);
                         if (c <= cap)
                         {
-                            
-
-                            if (MeetingE.InsertMeetingEmployee(empID, MID))
+                            if (ME.InsertMeetingEmployee(empID, MID))
                             {
-
-                                dataGridViewManageEmployees.DataSource = MeetingE.GetMeetingEmployees();
+                                dataGridViewManageEmployees.DataSource = ME.GetMeetingEmployees();
                                 MessageBox.Show("new Meeting Employees Inserted Successfuly", "Add Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
@@ -74,14 +74,12 @@ namespace RoomBookingApp
                         }
                         else 
                         {
-                            MessageBox.Show("Room Capacity was exceeded for selected meeting - Room Capacity = " + cap.ToString(), "Add Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //if the room capacity for the meeting selected room is exeaded then the loop is broken and the user is alerted.
+                            MessageBox.Show("Room Capacity was exceeded for selected meeting - Meeting Room Capacity = " + cap.ToString(), "Add Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                         }
-                 
                     }
-
-                }
-                
+                }               
             }
             catch (Exception ex)
             {
@@ -89,42 +87,34 @@ namespace RoomBookingApp
             }
         }
 
-        private void dataGridViewManageEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewManageEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             TextBoxIDMeetingEmployees.Text = dataGridViewManageEmployees.CurrentRow.Cells[0].Value.ToString();
             comboBoxMeetings.SelectedValue = (int)dataGridViewManageEmployees.CurrentRow.Cells[2].Value;
         }
 
-        private void buttonRemoveMeetingEMP_Click(object sender, EventArgs e)
+        private void ButtonRemoveMeetingEMP_Click(object sender, EventArgs e)
         {
             try
             {
-                MEETINGEMPLOYEES MeetingE = new MEETINGEMPLOYEES();
                 int MeetingEmployeeID = Convert.ToInt32(TextBoxIDMeetingEmployees.Text);
 
-                if (MeetingE.deleteMeetingEmployee(MeetingEmployeeID))
+                if (ME.DeleteMeetingEmployee(MeetingEmployeeID))
                 {
-                    dataGridViewManageEmployees.DataSource = MeetingE.GetMeetingEmployees();
+                    dataGridViewManageEmployees.DataSource = ME.GetMeetingEmployees();
                     MessageBox.Show("Meeting Employee Deleted Successfuly", "Delete Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //clears fields after deletion 
                     buttonClearMeetingEMP.PerformClick();
                 }
                 else
                 {
-                    MessageBox.Show("ERROR - Meeting Employee Not Deleted ", "Delete Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Meeting Employee Not Deleted ", "Delete Meeting Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Delete Meeting Employee Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
-        }
-
-        private void labelEmployeeID_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

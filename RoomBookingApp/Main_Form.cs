@@ -28,23 +28,13 @@ namespace RoomBookingApp
             MMF.Show();
         }
 
-        private void manageMeetingEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Main_Form_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void meetingEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MeetingEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageMeetingEmployeesForm MME = new ManageMeetingEmployeesForm();
             MME.Show();
         }
 
-        private void vIewMeetingsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ViewMeetingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ViewMeetingsForm vmf = new ViewMeetingsForm();
             vmf.Show();

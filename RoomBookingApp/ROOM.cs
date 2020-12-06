@@ -28,15 +28,12 @@ namespace RoomBookingApp
             if (command.ExecuteNonQuery() == 1)
             {
                 return true;
-
-
             }
             else
             {
                 conn.CloseConnection();
                 return false;
             }
-
         }
 
         //function to get the rooms
@@ -49,7 +46,6 @@ namespace RoomBookingApp
             adapter.SelectCommand = command;
             adapter.Fill(table);
 
-
             return table;
         }
 
@@ -61,7 +57,7 @@ namespace RoomBookingApp
             command.CommandText = editQuery;
             command.Connection = conn.GetConnection();
 
-            //@rid,@rrn,@rrc
+            //@rrn,@rrc,@rid
             command.Parameters.Add("@rid", MySqlDbType.Int32).Value = id;
             command.Parameters.Add("@rrn", MySqlDbType.VarChar).Value = RoomName;
             command.Parameters.Add("@rrc", MySqlDbType.Int32).Value = RoomCapacity;
@@ -77,13 +73,11 @@ namespace RoomBookingApp
                 conn.CloseConnection();
                 return false;
             }
-
         }
 
         //function to Delete Selected Employees
         public bool DeleteRooms(int id)
         {
-
             MySqlCommand command = new MySqlCommand();
             string removeQuery = "DELETE FROM `Rooms` WHERE `RoomID` = @rid";
             command.CommandText = removeQuery;
@@ -104,6 +98,7 @@ namespace RoomBookingApp
             }
         }
 
+        //function to returb the room capacity of a selected meeting
         public int RoomCap(int id)
         {
             MySqlCommand command = new MySqlCommand();
@@ -121,8 +116,6 @@ namespace RoomBookingApp
             }
             conn.CloseConnection();
             return 0;
-            
-        }
-        
-        }
+        } 
     }
+}

@@ -13,11 +13,11 @@ namespace RoomBookingApp
     public partial class ManageRoomsForm : Form
     {
         readonly ROOM room = new ROOM();
+
         public ManageRoomsForm()
         {
             InitializeComponent();
         }
-
 
         private void ButtonNewRoom_Click(object sender, EventArgs e)
         {
@@ -38,7 +38,7 @@ namespace RoomBookingApp
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "ID error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "ID Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

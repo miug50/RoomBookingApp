@@ -12,21 +12,20 @@ namespace RoomBookingApp
 {
     public partial class ManageMeetingsForm : Form
     {
-        readonly MEETINGS Meeting = new MEETINGS();
 
         public ManageMeetingsForm()
         {
             InitializeComponent();
         }
 
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        readonly MEETINGS Meeting = new MEETINGS();
+        
         private void ManageMeetingsForm_Load(object sender, EventArgs e)
         {
+            //loads the Meeting data in to the data grid view 
             dataGridView1.DataSource = Meeting.GetMeetings();  
+
+            //loads the roomtypes in to the room comboBox
             comboBoxRoomMeeting.DataSource = Meeting.RoomTypeList();
             comboBoxRoomMeeting.DisplayMember = "RoomName";
             comboBoxRoomMeeting.ValueMember = "RoomID";
@@ -55,21 +54,19 @@ namespace RoomBookingApp
                 {
                     if (Meeting.InsertMeeting(rid, start, end, desc))
                     {
+                        //updates the datagridview to show changes
                         dataGridView1.DataSource = Meeting.GetMeetings();
                         MessageBox.Show("new Meeting Inserted Successfuly", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     }
                     else
                     {
                         MessageBox.Show("Meeting Not Inserted", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Add Meeting Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+            }         
         }
 
         private void ButtonClearMeeting_Click(object sender, EventArgs e)
@@ -79,11 +76,6 @@ namespace RoomBookingApp
             textBoxMeetingDesc.Text = "";
             dateTimePickerMeetingStart.Value = DateTime.Now;
             dateTimePickerMeetingEnd.Value = DateTime.Now;
-        }
-
-        private void DateTimePickerMeetingStart_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void ButtonEditMeeting_Click(object sender, EventArgs e)
@@ -110,6 +102,7 @@ namespace RoomBookingApp
                 {
                     if (Meeting.EditMeeting(mid, rid, start, end, desc))
                     {
+                        //updates the datagridview to show changes
                         dataGridView1.DataSource = Meeting.GetMeetings();
                         MessageBox.Show("New Meeting Inserted Successfuly", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -117,7 +110,6 @@ namespace RoomBookingApp
                     {
                         MessageBox.Show("Meeting Not Inserted", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
             }
             catch (Exception ex)
@@ -128,6 +120,7 @@ namespace RoomBookingApp
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try { 
             textBoxIDMeeting.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             int cr = (int)dataGridView1.CurrentRow.Cells[1].Value;
             cr--;
@@ -135,7 +128,9 @@ namespace RoomBookingApp
             dateTimePickerMeetingStart.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value);
             dateTimePickerMeetingEnd.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[3].Value);
             textBoxMeetingDesc.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-
+            }catch(Exception ex){
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ButtonRemoveMeeting_Click(object sender, EventArgs e)
@@ -146,6 +141,7 @@ namespace RoomBookingApp
 
                 if (Meeting.DeleteMeeting(MeetingID))
                 {
+                    //updates the datagridview to show changes
                     dataGridView1.DataSource = Meeting.GetMeetings();
                     MessageBox.Show("Meeting Deleted Successfuly", "Delete Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //clears fields after deletion 
@@ -153,14 +149,12 @@ namespace RoomBookingApp
                 }
                 else
                 {
-                    MessageBox.Show("ERROR - Meeting Not Deleted ", "Delete Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Meeting Not Deleted ", "Delete Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Delete Meeting Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
     }

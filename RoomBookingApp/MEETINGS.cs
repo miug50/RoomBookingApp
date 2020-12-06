@@ -15,6 +15,7 @@ namespace RoomBookingApp
         //Function to get Meetings
         public DataTable GetMeetings()
         {
+            //when getting the Meeting data the SQL statment only selects values from today
             MySqlCommand command = new MySqlCommand("SELECT MeetingID, cast(`MeetingStart` as Time) as 'meeting start', cast(`MeetingEnd` as Time) as 'meeting End', MeetingDesc FROM `meetings` where meetingstart > DATE_ADD(NOW(), INTERVAL -1 day)", conn.GetConnection());
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
@@ -22,11 +23,10 @@ namespace RoomBookingApp
             adapter.SelectCommand = command;
             adapter.Fill(table);
 
-
             return table;
         }
 
-        //function to get Rooms
+        //function to get all Rooms
         public DataTable RoomTypeList()
         {
             MySqlCommand command = new MySqlCommand("SELECT * FROM `rooms`", conn.GetConnection());
@@ -35,7 +35,6 @@ namespace RoomBookingApp
 
             adapter.SelectCommand = command;
             adapter.Fill(table);
-
 
             return table;
         }
@@ -56,8 +55,6 @@ namespace RoomBookingApp
 
             conn.OpenConnection();
 
-            //problems here. its to do with how the dates are stored. look imn to it.
-
             if (command.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -67,7 +64,6 @@ namespace RoomBookingApp
                 conn.CloseConnection();
                 return false;
             }
-
         }
 
         //function to Edit Meetings
@@ -96,13 +92,11 @@ namespace RoomBookingApp
                 conn.CloseConnection();
                 return false;
             }
-
         }
 
         //create a Function to delete Meetings
         public bool DeleteMeeting(int id)
         {
-
             MySqlCommand command = new MySqlCommand();
             string removeQuery = "DELETE FROM `Meetings` WHERE `MeetingID` = @mid";
             command.CommandText = removeQuery;
@@ -121,12 +115,13 @@ namespace RoomBookingApp
                 conn.CloseConnection();
                 return false;
             }
-
         }
+
         public DataTable GetMeetingsFromID(int id)
         {
+            //this SQL has a few left joins to bring data from the three relevent tables in this case where the meeting id equals the passed value. Meetings,MeetingEmployees ,Employees. This data for today only.
             MySqlCommand command = new MySqlCommand();
-            String getQuery = "SELECT MeetingID, `Rooms.RoomID`, `MeetingStart`, `MeetingEnd`, `MeetingDesc` FROM meetings as m left join meetingemployees as me on m.MeetingID = me.`meetings.MeetingID` left join employees as e on me.`employees.EmployeeID` = e.EmployeeID where e.EmployeeID = @eid ";
+            String getQuery = "SELECT MeetingID, `Rooms.RoomID`, `MeetingStart`, `MeetingEnd`, `MeetingDesc` FROM meetings as m left join meetingemployees as me on m.MeetingID = me.`meetings.MeetingID` left join employees as e on me.`employees.EmployeeID` = e.EmployeeID where e.EmployeeID = @eid and `MeetingStart` > DATE_ADD(NOW(), INTERVAL -1 day) ";
             command.CommandText = getQuery;
             command.Connection = conn.GetConnection();
 
@@ -135,37 +130,31 @@ namespace RoomBookingApp
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
-
-            //SQL Used
-            //SELECT MeetingID, `Rooms.RoomID`, `MeetingStart`, `MeetingEnd`, `MeetingDesc` FROM meetings as m
-            //left join meetingemployees as me
-            //    on m.MeetingID = me.`meetings.MeetingID`
-            // left join employees as e
-            //    on me.`employees.EmployeeID` = e.EmployeeID
-            //where e.EmployeeID = 1;
            
-                adapter.SelectCommand = command;
-                adapter.Fill(table);
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
             
-                return table;   
-
+            return table;   
         }
 
-        public void getcsvdata()
+        public void GetCSVdata()
         {
+            //similar to the sql statment above this query brings togither values required for the log. This data is relevent to the last six months only.
             conn.OpenConnection();
             String getQuery = "SELECT m.`MeetingID`,m.`MeetingStart`,m.`MeetingDesc`,r.`RoomName`, count(me.`employees.EmployeeID`)  FROM `meetings` as m left join rooms as r on m.`Rooms.RoomID` = r.RoomID left join meetingemployees as me on m.MeetingID = me.`meetings.MeetingID` where `MeetingStart` > DATE_ADD(NOW(), INTERVAL -6 month) group by `MeetingID`";
-            
+
             using (var cmd = new MySqlCommand(getQuery, conn.GetConnection()))
             {
                 using (var reader = cmd.ExecuteReader())
                 {
                     try
                     {
+                        //this first section writes a new CSV file called Meetingreport as the boolean is set to false. This will overide the preveous copy with the coloum names as seen below
                         using (System.IO.StreamWriter file = new System.IO.StreamWriter("Meetingreport.csv", false))
                         {
                             file.WriteLine("id" + "," + "Meeeing Start" + "," + "Description" + "," + "Room Name" + "," + "Meeting Count");
                         }
+                        //Whilst the reader is reading through all the values the lines are added to the CSV file as the boolean is set to true. this alows the file to be writen to this way while removing any data older that Six months
                         while (reader.Read())
                         {
                             var ID = reader.GetString(0);
@@ -175,22 +164,17 @@ namespace RoomBookingApp
                             var count = reader.GetString(4);
 
                             using (System.IO.StreamWriter file = new System.IO.StreamWriter("Meetingreport.csv", true))
-                            {                        
+                            {
                                 file.WriteLine(ID + "," + Start + "," + desc + "," + Rname + "," + count);
                             }
-                        
                         }
                     }
                     catch (Exception ex)
                     {
-                        throw new ApplicationException("something went wrong: ", ex);
+                        throw new ApplicationException("Something went Wrong: ", ex);
                     }
-
                 }
             }
-            
         }
-
     }
-
 }

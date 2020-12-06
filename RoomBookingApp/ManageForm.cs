@@ -17,11 +17,7 @@ namespace RoomBookingApp
             InitializeComponent();
         }
 
-        private void ManageForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        //When the Manage form is closed the login form is presented. This is if an admin wishes to check changes.
         private void ManageForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoginForm LF = new LoginForm();
@@ -40,10 +36,11 @@ namespace RoomBookingApp
             ManageRF.Show();
         }
 
-        private void logFileToolStripMenuItem_Click(object sender, EventArgs e)
+        //when the admin selects this button the last 6 months are saved. This is a manual option. This can be made semi-Automatic by moving this function to the login page as "onload"
+        private void LogFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MEETINGS meeting = new MEETINGS();
-            meeting.getcsvdata();
+            meeting.GetCSVdata();
             MessageBox.Show("Last 6 months saved", "data saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

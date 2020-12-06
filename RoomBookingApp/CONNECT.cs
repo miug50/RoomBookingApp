@@ -12,7 +12,7 @@ namespace RoomBookingApp
     {
         private readonly MySqlConnection Connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=Csharp_RoomBooking_DB");
 
-
+        //returns the mysql connection on request
         public MySqlConnection GetConnection()
         {
             return Connection;

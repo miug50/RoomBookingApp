@@ -12,6 +12,7 @@ namespace RoomBookingApp
     {
         readonly CONNECT conn = new CONNECT();
 
+        //creates a new employee from the values passed
         public bool InsertEmployee(String Fname, String Lname, String Email)
         {
             MySqlCommand command = new MySqlCommand();
@@ -40,6 +41,7 @@ namespace RoomBookingApp
 
         }
 
+        //returns all the employees from the 'employee' table 
         public DataTable GetEmployee()
         {
             MySqlCommand command = new MySqlCommand("SELECT * FROM `employees`", conn.GetConnection());
@@ -53,7 +55,7 @@ namespace RoomBookingApp
             return table;
         }
 
-        //function to Edit Employees
+        //function to Edit Employees in the employee tabel 
         public bool EditEmployee(int id, String Fname, String Lname, String Email)
         {
             MySqlCommand command = new MySqlCommand();

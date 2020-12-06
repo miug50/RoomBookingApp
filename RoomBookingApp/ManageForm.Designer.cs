@@ -94,7 +94,7 @@
             this.logFileToolStripMenuItem.Name = "logFileToolStripMenuItem";
             this.logFileToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.logFileToolStripMenuItem.Text = "Update Log File";
-            this.logFileToolStripMenuItem.Click += new System.EventHandler(this.logFileToolStripMenuItem_Click);
+            this.logFileToolStripMenuItem.Click += new System.EventHandler(this.LogFileToolStripMenuItem_Click);
             // 
             // ManageForm
             // 
@@ -111,7 +111,6 @@
             this.Name = "ManageForm";
             this.Text = "Managment Page";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ManageForm_FormClosed);
-            this.Load += new System.EventHandler(this.ManageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
