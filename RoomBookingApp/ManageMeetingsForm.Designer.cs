@@ -43,8 +43,6 @@
             this.textBoxIDMeeting = new System.Windows.Forms.TextBox();
             this.buttonClearMeeting = new System.Windows.Forms.Button();
             this.buttonNewMeeting = new System.Windows.Forms.Button();
-            this.buttonRemoveMeeting = new System.Windows.Forms.Button();
-            this.buttonEditMeeting = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -83,8 +81,6 @@
             this.groupBoxMeetings.Controls.Add(this.textBoxIDMeeting);
             this.groupBoxMeetings.Controls.Add(this.buttonClearMeeting);
             this.groupBoxMeetings.Controls.Add(this.buttonNewMeeting);
-            this.groupBoxMeetings.Controls.Add(this.buttonRemoveMeeting);
-            this.groupBoxMeetings.Controls.Add(this.buttonEditMeeting);
             this.groupBoxMeetings.Location = new System.Drawing.Point(50, 163);
             this.groupBoxMeetings.Name = "groupBoxMeetings";
             this.groupBoxMeetings.Size = new System.Drawing.Size(480, 500);
@@ -93,11 +89,11 @@
             // 
             // textBoxMeetingDesc
             // 
-            this.textBoxMeetingDesc.Location = new System.Drawing.Point(229, 185);
+            this.textBoxMeetingDesc.Location = new System.Drawing.Point(228, 185);
             this.textBoxMeetingDesc.Multiline = true;
             this.textBoxMeetingDesc.Name = "textBoxMeetingDesc";
             this.textBoxMeetingDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxMeetingDesc.Size = new System.Drawing.Size(211, 171);
+            this.textBoxMeetingDesc.Size = new System.Drawing.Size(212, 171);
             this.textBoxMeetingDesc.TabIndex = 27;
             // 
             // dateTimePickerMeetingEnd
@@ -196,7 +192,7 @@
             this.buttonClearMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClearMeeting.Location = new System.Drawing.Point(68, 377);
             this.buttonClearMeeting.Name = "buttonClearMeeting";
-            this.buttonClearMeeting.Size = new System.Drawing.Size(150, 25);
+            this.buttonClearMeeting.Size = new System.Drawing.Size(372, 25);
             this.buttonClearMeeting.TabIndex = 25;
             this.buttonClearMeeting.Text = "Clear Fields";
             this.buttonClearMeeting.UseVisualStyleBackColor = true;
@@ -213,28 +209,6 @@
             this.buttonNewMeeting.UseVisualStyleBackColor = true;
             this.buttonNewMeeting.Click += new System.EventHandler(this.ButtonNewMeeting_Click);
             // 
-            // buttonRemoveMeeting
-            // 
-            this.buttonRemoveMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRemoveMeeting.Location = new System.Drawing.Point(341, 377);
-            this.buttonRemoveMeeting.Name = "buttonRemoveMeeting";
-            this.buttonRemoveMeeting.Size = new System.Drawing.Size(100, 25);
-            this.buttonRemoveMeeting.TabIndex = 24;
-            this.buttonRemoveMeeting.Text = "Remove";
-            this.buttonRemoveMeeting.UseVisualStyleBackColor = true;
-            this.buttonRemoveMeeting.Click += new System.EventHandler(this.ButtonRemoveMeeting_Click);
-            // 
-            // buttonEditMeeting
-            // 
-            this.buttonEditMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditMeeting.Location = new System.Drawing.Point(228, 377);
-            this.buttonEditMeeting.Name = "buttonEditMeeting";
-            this.buttonEditMeeting.Size = new System.Drawing.Size(100, 25);
-            this.buttonEditMeeting.TabIndex = 23;
-            this.buttonEditMeeting.Text = "Edit";
-            this.buttonEditMeeting.UseVisualStyleBackColor = true;
-            this.buttonEditMeeting.Click += new System.EventHandler(this.ButtonEditMeeting_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -250,7 +224,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(850, 500);
             this.dataGridView1.TabIndex = 10;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // panel2
             // 
@@ -305,8 +278,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonClearMeeting;
-        private System.Windows.Forms.Button buttonRemoveMeeting;
-        private System.Windows.Forms.Button buttonEditMeeting;
         private System.Windows.Forms.Button buttonNewMeeting;
         private System.Windows.Forms.TextBox textBoxIDMeeting;
         private System.Windows.Forms.Label label5;

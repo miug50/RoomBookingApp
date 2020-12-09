@@ -44,24 +44,32 @@ namespace RoomBookingApp
 
                 if (start < DateTime.Now)
                 {
-                    MessageBox.Show("the date/time must be > current date/time", "invalid Date/time", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The date/time must be > current date/time", "Invalid Date/time", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (end < start)
                 {
-                    MessageBox.Show("the meeting end must be before the meeting start", "invalid Date/time", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The meeting must start be before the End of the meeting", "Invalid Date/time", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    if (Meeting.InsertMeeting(rid, start, end, desc))
+                    if(desc == null || desc == string.Empty)
                     {
-                        //updates the datagridview to show changes
-                        dataGridView1.DataSource = Meeting.GetMeetings();
-                        MessageBox.Show("new Meeting Inserted Successfuly", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       MessageBox.Show("Description can't be empty", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Meeting Not Inserted", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (Meeting.InsertMeeting(rid, start, end, desc))
+                        {
+                            //updates the datagridview to show changes
+                            dataGridView1.DataSource = Meeting.GetMeetings();
+                            MessageBox.Show("New Meeting Inserted Successfuly", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Meeting Not Inserted", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
+                    
                 }
             }catch(Exception ex)
             {
@@ -76,86 +84,6 @@ namespace RoomBookingApp
             textBoxMeetingDesc.Text = "";
             dateTimePickerMeetingStart.Value = DateTime.Now;
             dateTimePickerMeetingEnd.Value = DateTime.Now;
-        }
-
-        private void ButtonEditMeeting_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int mid = Convert.ToInt32(textBoxIDMeeting.Text);
-                int ct = Convert.ToInt32(comboBoxRoomMeeting.SelectedValue);
-                ct++;
-                DateTime start = dateTimePickerMeetingStart.Value;
-                int rid = ct; 
-                DateTime end = dateTimePickerMeetingEnd.Value;
-                string desc = textBoxMeetingDesc.Text;
-
-                if (start < DateTime.Now) 
-                {
-                    MessageBox.Show("The date/time must be > current date/time", "invalid Date/time", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (end < start)
-                {
-                    MessageBox.Show("The meeting Start must be before the meeting End", "invalid Date/time", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    if (Meeting.EditMeeting(mid, rid, start, end, desc))
-                    {
-                        //updates the datagridview to show changes
-                        dataGridView1.DataSource = Meeting.GetMeetings();
-                        MessageBox.Show("New Meeting Inserted Successfuly", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Meeting Not Inserted", "Add Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Add Meeting Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try { 
-            textBoxIDMeeting.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            int cr = (int)dataGridView1.CurrentRow.Cells[1].Value;
-            cr--;
-            comboBoxRoomMeeting.SelectedIndex = cr;
-            dateTimePickerMeetingStart.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value);
-            dateTimePickerMeetingEnd.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[3].Value);
-            textBoxMeetingDesc.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            }catch(Exception ex){
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ButtonRemoveMeeting_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int MeetingID = Convert.ToInt32(textBoxIDMeeting.Text);
-
-                if (Meeting.DeleteMeeting(MeetingID))
-                {
-                    //updates the datagridview to show changes
-                    dataGridView1.DataSource = Meeting.GetMeetings();
-                    MessageBox.Show("Meeting Deleted Successfuly", "Delete Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //clears fields after deletion 
-                    buttonClearMeeting.PerformClick();
-                }
-                else
-                {
-                    MessageBox.Show("Meeting Not Deleted ", "Delete Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Delete Meeting Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        } 
     }
 }

@@ -40,8 +40,17 @@ namespace RoomBookingApp
         private void LogFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MEETINGS meeting = new MEETINGS();
-            meeting.GetCSVdata();
-            MessageBox.Show("Last 6 months saved", "data saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                meeting.GetCSVdata();
+                MessageBox.Show("Last 6 months saved", "Data Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            
         }
 
     }

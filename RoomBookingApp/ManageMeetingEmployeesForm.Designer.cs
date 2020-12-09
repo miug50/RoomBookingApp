@@ -127,6 +127,7 @@
             // 
             // comboBoxMeetings
             // 
+            this.comboBoxMeetings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMeetings.FormattingEnabled = true;
             this.comboBoxMeetings.Location = new System.Drawing.Point(182, 94);
             this.comboBoxMeetings.MaxDropDownItems = 12;
