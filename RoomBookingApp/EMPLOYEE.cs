@@ -8,81 +8,98 @@ using System.Data;
 
 namespace RoomBookingApp
 {
-    class EMPLOYEE
+    public class EMPLOYEE
     {
         readonly CONNECT conn = new CONNECT();
 
         //creates a new employee from the values passed
         public bool InsertEmployee(String Fname, String Lname, String Email)
         {
-            MySqlCommand command = new MySqlCommand();
-            string insertQuery = "INSERT INTO `employees`(`EmployeeFname`, `EmployeeLname`, `EmployeeEmail`) VALUES (@fnm,@lnm,@eml)";
-            command.CommandText = insertQuery;
-            command.Connection = conn.GetConnection();
-
-            //@fnm,@lnm,@eml
-            command.Parameters.Add("@fnm", MySqlDbType.VarChar).Value = Fname;
-            command.Parameters.Add("@lnm", MySqlDbType.VarChar).Value = Lname;
-            command.Parameters.Add("@eml", MySqlDbType.VarChar).Value = Email;
-
-            conn.OpenConnection();
-
-            if(command.ExecuteNonQuery() == 1)
+            try
             {
-                return true;
+                MySqlCommand command = new MySqlCommand();
+                string insertQuery = "INSERT INTO `employees`(`EmployeeFname`, `EmployeeLname`, `EmployeeEmail`) VALUES (@fnm,@lnm,@eml)";
+                command.CommandText = insertQuery;
+                command.Connection = conn.GetConnection();
+            
+                //@fnm,@lnm,@eml
+                command.Parameters.Add("@fnm", MySqlDbType.VarChar).Value = Fname;
+                command.Parameters.Add("@lnm", MySqlDbType.VarChar).Value = Lname;
+                command.Parameters.Add("@eml", MySqlDbType.VarChar).Value = Email;
 
+                conn.OpenConnection();
 
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    conn.CloseConnection();
+                    return false;
+                }
             }
-            else
+            catch(Exception)
             {
-                conn.CloseConnection();
                 return false;
             }
-
         }
 
         //returns all the employees from the 'employee' table 
         public DataTable GetEmployee()
         {
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `employees`", conn.GetConnection());
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            DataTable table = new DataTable();
+            try 
+            { 
+                MySqlCommand command = new MySqlCommand("SELECT * FROM `employees`", conn.GetConnection());
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                DataTable table = new DataTable();
 
-            adapter.SelectCommand = command;
-            adapter.Fill(table); 
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
 
 
-            return table;
+                return table;
+            }
+            catch(Exception)
+            {
+                return null;
+            }
         }
 
         //function to Edit Employees in the employee tabel 
         public bool EditEmployee(int id, String Fname, String Lname, String Email)
         {
-            MySqlCommand command = new MySqlCommand();
-            string editQuery = "UPDATE `employees` SET `EmployeeFname`= @fnm,`EmployeeLname`=@lnm,`EmployeeEmail`=@eml WHERE `EmployeeID`= @eid";
-            command.CommandText = editQuery;
-            command.Connection = conn.GetConnection();
-
-            //@eid,@fnm,@lnm,@eml
-            command.Parameters.Add("@eid", MySqlDbType.Int32).Value = id;
-            command.Parameters.Add("@fnm", MySqlDbType.VarChar).Value = Fname;
-            command.Parameters.Add("@lnm", MySqlDbType.VarChar).Value = Lname;
-            command.Parameters.Add("@eml", MySqlDbType.VarChar).Value = Email;
-
-            conn.OpenConnection();
-
-            if (command.ExecuteNonQuery() == 1)
+            try
             {
-                return true;
+                MySqlCommand command = new MySqlCommand();
+                string editQuery = "UPDATE `employees` SET `EmployeeFname`= @fnm,`EmployeeLname`=@lnm,`EmployeeEmail`=@eml WHERE `EmployeeID`= @eid";
+                command.CommandText = editQuery;
+                command.Connection = conn.GetConnection();
+            
+                //@eid,@fnm,@lnm,@eml
+                command.Parameters.Add("@eid", MySqlDbType.Int32).Value = id;
+                command.Parameters.Add("@fnm", MySqlDbType.VarChar).Value = Fname;
+                command.Parameters.Add("@lnm", MySqlDbType.VarChar).Value = Lname;
+                command.Parameters.Add("@eml", MySqlDbType.VarChar).Value = Email;
+
+                conn.OpenConnection();
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    return true;
 
 
+                }
+                else
+                {
+                    conn.CloseConnection();
+                    return false;
+                }
             }
-            else
+            catch (Exception)
             {
-                conn.CloseConnection();
                 return false;
             }
-
         }
 
         //create a Function to delete Employees

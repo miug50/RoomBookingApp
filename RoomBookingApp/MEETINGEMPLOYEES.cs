@@ -8,30 +8,37 @@ using System.Data;
 
 namespace RoomBookingApp
 {
-    class MEETINGEMPLOYEES
+    public class MEETINGEMPLOYEES
     {
         readonly CONNECT conn = new CONNECT();
 
         public bool InsertMeetingEmployee( int Employee,int Meeting)
         {
-            MySqlCommand command = new MySqlCommand();
-            string insertQuery = "INSERT INTO `MeetingEmployees`(`employees.EmployeeID`, `meetings.MeetingID`) VALUES (@mei,@mmi)";
-            command.CommandText = insertQuery;
-            command.Connection = conn.GetConnection();
-
-            //@mei,@mmi
-            command.Parameters.Add("@mmi", MySqlDbType.VarChar).Value = Meeting;
-            command.Parameters.Add("@mei", MySqlDbType.VarChar).Value = Employee;
-
-            conn.OpenConnection();
-
-            if (command.ExecuteNonQuery() == 1)
+            try
             {
-                return true;
+                MySqlCommand command = new MySqlCommand();
+                string insertQuery = "INSERT INTO `MeetingEmployees`(`employees.EmployeeID`, `meetings.MeetingID`) VALUES (@mei,@mmi)";
+                command.CommandText = insertQuery;
+                command.Connection = conn.GetConnection();
+
+                //@mei,@mmi
+                command.Parameters.Add("@mmi", MySqlDbType.Int32).Value = Meeting;
+                command.Parameters.Add("@mei", MySqlDbType.Int32).Value = Employee;
+
+                conn.OpenConnection();
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    conn.CloseConnection();
+                    return false;
+                }
             }
-            else
+            catch(Exception)
             {
-                conn.CloseConnection();
                 return false;
             }
         }
@@ -50,24 +57,32 @@ namespace RoomBookingApp
 
         public bool DeleteMeetingEmployee(int id)
         {
-            MySqlCommand command = new MySqlCommand();
-            string removeQuery = "DELETE FROM `MeetingEmployees` WHERE `MeetingEmployeeID` = @meid";
-            command.CommandText = removeQuery;
-            command.Connection = conn.GetConnection();
-
-            //@meid
-            command.Parameters.Add("@meid", MySqlDbType.Int32).Value = id;
-            conn.OpenConnection();
-
-            if (command.ExecuteNonQuery() == 1)
+            try
             {
-                return true;
+                MySqlCommand command = new MySqlCommand();
+                string removeQuery = "DELETE FROM `MeetingEmployees` WHERE `MeetingEmployeeID` = @meid";
+                command.CommandText = removeQuery;
+                command.Connection = conn.GetConnection();
+
+                //@meid
+                command.Parameters.Add("@meid", MySqlDbType.Int32).Value = id;
+                conn.OpenConnection();
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    conn.CloseConnection();
+                    return false;
+                }
             }
-            else
+            catch(Exception)
             {
-                conn.CloseConnection();
                 return false;
             }
+            
         }
     }
 }
