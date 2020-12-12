@@ -1,6 +1,6 @@
 ﻿namespace RoomBookingApp
 {
-    partial class Main_Form
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.manageMeetingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.meetingEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +75,7 @@
             this.vIewMeetingsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.vIewMeetingsToolStripMenuItem.Name = "vIewMeetingsToolStripMenuItem";
             this.vIewMeetingsToolStripMenuItem.Size = new System.Drawing.Size(124, 25);
-            this.vIewMeetingsToolStripMenuItem.Text = "VIew Meetings";
+            this.vIewMeetingsToolStripMenuItem.Text = "View Meetings";
             this.vIewMeetingsToolStripMenuItem.Click += new System.EventHandler(this.ViewMeetingsToolStripMenuItem_Click);
             // 
             // panel1
@@ -113,7 +113,7 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Main_Form
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,7 +124,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1500, 755);
-            this.Name = "Main_Form";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Guest Page";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Form_FormClosing);

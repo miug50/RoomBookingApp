@@ -97,7 +97,7 @@ namespace RoomBookingApp
         {
             // show the main from for guests. No login required
             this.Hide();
-            Main_Form mForm = new Main_Form();
+            MainForm mForm = new MainForm();
             mForm.Show();
         }
 
