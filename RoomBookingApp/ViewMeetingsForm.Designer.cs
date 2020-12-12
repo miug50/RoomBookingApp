@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewMeetingsForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,6 +74,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewViewMeetings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewViewMeetings.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewViewMeetings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewViewMeetings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewViewMeetings.Location = new System.Drawing.Point(565, 174);
             this.dataGridViewViewMeetings.Name = "dataGridViewViewMeetings";
@@ -97,9 +106,9 @@
             this.labelEmployeeName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelEmployeeName.Location = new System.Drawing.Point(23, 38);
             this.labelEmployeeName.Name = "labelEmployeeName";
-            this.labelEmployeeName.Size = new System.Drawing.Size(195, 29);
+            this.labelEmployeeName.Size = new System.Drawing.Size(199, 29);
             this.labelEmployeeName.TabIndex = 21;
-            this.labelEmployeeName.Text = "Employee Email:";
+            this.labelEmployeeName.Text = "Employee Name:";
             // 
             // groupBoxViewMeetings
             // 

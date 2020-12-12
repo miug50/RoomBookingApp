@@ -66,6 +66,26 @@ namespace RoomBookingApp
             }
         }
 
+        public DataTable GetEmployees()
+        {
+            try
+            {
+                MySqlCommand command = new MySqlCommand("SELECT EmployeeID, concat(`EmployeeFname` , ' ' , `EmployeeLname`) as Name FROM `employees`", conn.GetConnection());
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                DataTable table = new DataTable();
+
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+
+
+                return table;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         //function to Edit Employees in the employee tabel 
         public bool EditEmployee(int id, String Fname, String Lname, String Email)
         {

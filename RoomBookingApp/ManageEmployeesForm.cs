@@ -125,7 +125,7 @@ namespace RoomBookingApp
                 }
                 else
                 {
-                    MessageBox.Show("ERROR - Employeeent Not Updated ", "Delete Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("ERROR - Employee Not Updated ", "Delete Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }

@@ -45,14 +45,21 @@ namespace RoomBookingApp
 
         public DataTable GetMeetingEmployees()
         {
-            //when getting the meeting employee data the SQL statment only selects values from today
-            MySqlCommand command = new MySqlCommand("SELECT a.* FROM `MeetingEmployees` as a, Meetings as b where a.`meetings.MeetingID` =b.MeetingID and b.meetingstart > DATE_ADD(NOW(), INTERVAL -1 day)", conn.GetConnection());
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            DataTable table = new DataTable();
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
+            try
+            {
+                //when getting the meeting employee data the SQL statment only selects values from today
+                MySqlCommand command = new MySqlCommand("SELECT a.* FROM `MeetingEmployees` as a, Meetings as b where a.`meetings.MeetingID` =b.MeetingID and b.meetingstart > DATE_ADD(NOW(), INTERVAL -1 day)", conn.GetConnection());
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                DataTable table = new DataTable();
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
 
-            return table;
+                return table;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public bool DeleteMeetingEmployee(int id)

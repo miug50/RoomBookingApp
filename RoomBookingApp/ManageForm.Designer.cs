@@ -33,8 +33,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.manageEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageRoomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.logFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,13 +52,15 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageEmployeesToolStripMenuItem,
             this.manageRoomsToolStripMenuItem,
             this.logFileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1484, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1484, 29);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -76,6 +78,13 @@
             this.manageRoomsToolStripMenuItem.Text = "Manage Rooms";
             this.manageRoomsToolStripMenuItem.Click += new System.EventHandler(this.ManageRoomsToolStripMenuItem_Click);
             // 
+            // logFileToolStripMenuItem
+            // 
+            this.logFileToolStripMenuItem.Name = "logFileToolStripMenuItem";
+            this.logFileToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.logFileToolStripMenuItem.Text = "Update Log File";
+            this.logFileToolStripMenuItem.Click += new System.EventHandler(this.LogFileToolStripMenuItem_Click);
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -88,13 +97,6 @@
             this.label1.Size = new System.Drawing.Size(342, 42);
             this.label1.TabIndex = 3;
             this.label1.Text = "Management Page";
-            // 
-            // logFileToolStripMenuItem
-            // 
-            this.logFileToolStripMenuItem.Name = "logFileToolStripMenuItem";
-            this.logFileToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.logFileToolStripMenuItem.Text = "Update Log File";
-            this.logFileToolStripMenuItem.Click += new System.EventHandler(this.LogFileToolStripMenuItem_Click);
             // 
             // ManageForm
             // 

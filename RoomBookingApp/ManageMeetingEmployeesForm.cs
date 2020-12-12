@@ -89,8 +89,15 @@ namespace RoomBookingApp
 
         private void DataGridViewManageEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            TextBoxIDMeetingEmployees.Text = dataGridViewManageEmployees.CurrentRow.Cells[0].Value.ToString();
-            comboBoxMeetings.SelectedValue = (int)dataGridViewManageEmployees.CurrentRow.Cells[2].Value;
+            try
+            {
+                TextBoxIDMeetingEmployees.Text = dataGridViewManageEmployees.CurrentRow.Cells[0].Value.ToString();
+                comboBoxMeetings.SelectedValue = (int)dataGridViewManageEmployees.CurrentRow.Cells[2].Value;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ButtonRemoveMeetingEMP_Click(object sender, EventArgs e)

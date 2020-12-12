@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label labelMeetingdesc;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageMeetingEmployeesForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxMeetingEmployee = new System.Windows.Forms.GroupBox();
@@ -100,6 +102,14 @@
             this.dataGridViewMeetingEmployeeLst.AllowUserToAddRows = false;
             this.dataGridViewMeetingEmployeeLst.AllowUserToDeleteRows = false;
             this.dataGridViewMeetingEmployeeLst.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMeetingEmployeeLst.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewMeetingEmployeeLst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMeetingEmployeeLst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chk});
@@ -197,6 +207,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewManageEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewManageEmployees.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewManageEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewManageEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewManageEmployees.Location = new System.Drawing.Point(564, 158);
             this.dataGridViewManageEmployees.Name = "dataGridViewManageEmployees";

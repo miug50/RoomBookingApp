@@ -84,6 +84,36 @@ namespace RoomBookingApp
             textBoxMeetingDesc.Text = "";
             dateTimePickerMeetingStart.Value = DateTime.Now;
             dateTimePickerMeetingEnd.Value = DateTime.Now;
-        } 
+        }
+
+        private void ButtonRemoveEmp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(textBoxMeeting.Text);
+
+                if (Meeting.DeleteMeeting(id))
+                {
+                    dataGridView1.DataSource = Meeting.GetMeetings();
+                    MessageBox.Show("Meeting Deleted Successfuly", "Delete Meeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //clears fields after deletion 
+                    buttonClearMeeting.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("ERROR - Meeting Not Updated ", "Delete Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete Meeting", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBoxMeeting.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
     }
 }

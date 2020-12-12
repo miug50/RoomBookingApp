@@ -43,14 +43,15 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageMeetingsToolStripMenuItem,
             this.meetingEmployeesToolStripMenuItem,
             this.vIewMeetingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1484, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1484, 29);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -58,21 +59,22 @@
             // 
             this.manageMeetingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.manageMeetingsToolStripMenuItem.Name = "manageMeetingsToolStripMenuItem";
-            this.manageMeetingsToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.manageMeetingsToolStripMenuItem.Size = new System.Drawing.Size(118, 25);
             this.manageMeetingsToolStripMenuItem.Text = "Add Meetings";
             this.manageMeetingsToolStripMenuItem.Click += new System.EventHandler(this.ManageMeetingsToolStripMenuItem_Click);
             // 
             // meetingEmployeesToolStripMenuItem
             // 
             this.meetingEmployeesToolStripMenuItem.Name = "meetingEmployeesToolStripMenuItem";
-            this.meetingEmployeesToolStripMenuItem.Size = new System.Drawing.Size(148, 20);
+            this.meetingEmployeesToolStripMenuItem.Size = new System.Drawing.Size(190, 25);
             this.meetingEmployeesToolStripMenuItem.Text = "Add Meeting Employees";
             this.meetingEmployeesToolStripMenuItem.Click += new System.EventHandler(this.MeetingEmployeesToolStripMenuItem_Click);
             // 
             // vIewMeetingsToolStripMenuItem
             // 
+            this.vIewMeetingsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.vIewMeetingsToolStripMenuItem.Name = "vIewMeetingsToolStripMenuItem";
-            this.vIewMeetingsToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.vIewMeetingsToolStripMenuItem.Size = new System.Drawing.Size(124, 25);
             this.vIewMeetingsToolStripMenuItem.Text = "VIew Meetings";
             this.vIewMeetingsToolStripMenuItem.Click += new System.EventHandler(this.ViewMeetingsToolStripMenuItem_Click);
             // 
@@ -82,9 +84,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Location = new System.Drawing.Point(0, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1484, 692);
+            this.panel1.Size = new System.Drawing.Size(1484, 687);
             this.panel1.TabIndex = 2;
             // 
             // label1

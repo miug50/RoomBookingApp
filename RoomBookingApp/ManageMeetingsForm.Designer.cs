@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageMeetingsForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxMeetings = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxMeeting = new System.Windows.Forms.TextBox();
+            this.buttonRemoveEmp = new System.Windows.Forms.Button();
             this.textBoxMeetingDesc = new System.Windows.Forms.TextBox();
             this.dateTimePickerMeetingEnd = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,6 +73,9 @@
             this.groupBoxMeetings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxMeetings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.groupBoxMeetings.Controls.Add(this.label7);
+            this.groupBoxMeetings.Controls.Add(this.textBoxMeeting);
+            this.groupBoxMeetings.Controls.Add(this.buttonRemoveEmp);
             this.groupBoxMeetings.Controls.Add(this.textBoxMeetingDesc);
             this.groupBoxMeetings.Controls.Add(this.dateTimePickerMeetingEnd);
             this.groupBoxMeetings.Controls.Add(this.label2);
@@ -87,21 +94,53 @@
             this.groupBoxMeetings.TabIndex = 31;
             this.groupBoxMeetings.TabStop = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(175, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 29);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "ID:";
+            // 
+            // textBoxMeeting
+            // 
+            this.textBoxMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMeeting.Location = new System.Drawing.Point(227, 26);
+            this.textBoxMeeting.Name = "textBoxMeeting";
+            this.textBoxMeeting.ReadOnly = true;
+            this.textBoxMeeting.Size = new System.Drawing.Size(213, 26);
+            this.textBoxMeeting.TabIndex = 33;
+            // 
+            // buttonRemoveEmp
+            // 
+            this.buttonRemoveEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRemoveEmp.Location = new System.Drawing.Point(263, 377);
+            this.buttonRemoveEmp.Name = "buttonRemoveEmp";
+            this.buttonRemoveEmp.Size = new System.Drawing.Size(178, 25);
+            this.buttonRemoveEmp.TabIndex = 31;
+            this.buttonRemoveEmp.Text = "Remove";
+            this.buttonRemoveEmp.UseVisualStyleBackColor = true;
+            this.buttonRemoveEmp.Click += new System.EventHandler(this.ButtonRemoveEmp_Click);
+            // 
             // textBoxMeetingDesc
             // 
-            this.textBoxMeetingDesc.Location = new System.Drawing.Point(228, 185);
+            this.textBoxMeetingDesc.Location = new System.Drawing.Point(228, 218);
             this.textBoxMeetingDesc.Multiline = true;
             this.textBoxMeetingDesc.Name = "textBoxMeetingDesc";
             this.textBoxMeetingDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxMeetingDesc.Size = new System.Drawing.Size(212, 171);
+            this.textBoxMeetingDesc.Size = new System.Drawing.Size(212, 147);
             this.textBoxMeetingDesc.TabIndex = 27;
             // 
             // dateTimePickerMeetingEnd
             // 
             this.dateTimePickerMeetingEnd.CustomFormat = "HH:mm";
             this.dateTimePickerMeetingEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerMeetingEnd.Location = new System.Drawing.Point(228, 138);
+            this.dateTimePickerMeetingEnd.Location = new System.Drawing.Point(228, 171);
             this.dateTimePickerMeetingEnd.Name = "dateTimePickerMeetingEnd";
+            this.dateTimePickerMeetingEnd.ShowUpDown = true;
             this.dateTimePickerMeetingEnd.Size = new System.Drawing.Size(212, 20);
             this.dateTimePickerMeetingEnd.TabIndex = 30;
             // 
@@ -120,8 +159,9 @@
             // 
             this.dateTimePickerMeetingStart.CustomFormat = "HH:mm";
             this.dateTimePickerMeetingStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerMeetingStart.Location = new System.Drawing.Point(228, 89);
+            this.dateTimePickerMeetingStart.Location = new System.Drawing.Point(228, 122);
             this.dateTimePickerMeetingStart.Name = "dateTimePickerMeetingStart";
+            this.dateTimePickerMeetingStart.ShowUpDown = true;
             this.dateTimePickerMeetingStart.Size = new System.Drawing.Size(213, 20);
             this.dateTimePickerMeetingStart.TabIndex = 29;
             // 
@@ -130,7 +170,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(134, 33);
+            this.label3.Location = new System.Drawing.Point(134, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 29);
             this.label3.TabIndex = 15;
@@ -141,7 +181,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(51, 185);
+            this.label6.Location = new System.Drawing.Point(51, 218);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(167, 29);
             this.label6.TabIndex = 28;
@@ -152,7 +192,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(57, 83);
+            this.label4.Location = new System.Drawing.Point(57, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(161, 29);
             this.label4.TabIndex = 16;
@@ -163,7 +203,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(63, 132);
+            this.label5.Location = new System.Drawing.Point(63, 165);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(155, 29);
             this.label5.TabIndex = 17;
@@ -173,7 +213,7 @@
             // 
             this.comboBoxRoomMeeting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRoomMeeting.FormattingEnabled = true;
-            this.comboBoxRoomMeeting.Location = new System.Drawing.Point(228, 42);
+            this.comboBoxRoomMeeting.Location = new System.Drawing.Point(228, 75);
             this.comboBoxRoomMeeting.Name = "comboBoxRoomMeeting";
             this.comboBoxRoomMeeting.Size = new System.Drawing.Size(213, 21);
             this.comboBoxRoomMeeting.TabIndex = 26;
@@ -192,7 +232,7 @@
             this.buttonClearMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClearMeeting.Location = new System.Drawing.Point(68, 377);
             this.buttonClearMeeting.Name = "buttonClearMeeting";
-            this.buttonClearMeeting.Size = new System.Drawing.Size(372, 25);
+            this.buttonClearMeeting.Size = new System.Drawing.Size(173, 25);
             this.buttonClearMeeting.TabIndex = 25;
             this.buttonClearMeeting.Text = "Clear Fields";
             this.buttonClearMeeting.UseVisualStyleBackColor = true;
@@ -218,12 +258,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(556, 163);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(850, 500);
             this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // panel2
             // 
@@ -290,5 +339,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerMeetingEnd;
         private System.Windows.Forms.DateTimePicker dateTimePickerMeetingStart;
         private System.Windows.Forms.GroupBox groupBoxMeetings;
+        private System.Windows.Forms.Button buttonRemoveEmp;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxMeeting;
     }
 }
